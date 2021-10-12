@@ -1,0 +1,76 @@
+<?php
+
+namespace OmarEhab\Aramex\API\Response\Shipping;
+
+use OmarEhab\Aramex\API\Response\Response;
+
+/**
+ * Returns the last range reserved.
+ *
+ * Class LastReservedShipmentNumberRangeResponse
+ * @package OmarEhab\Aramex\API\Response
+ */
+class LastReservedShipmentNumberRangeResponse extends Response
+{
+    private string $fromWayBill;
+    private string $toWayBill;
+
+    /**
+     * @return string
+     */
+    public function getFromWayBill(): string
+    {
+        return $this->fromWayBill;
+    }
+
+    /**
+     * @param string $fromWayBill
+     * @return LastReservedShipmentNumberRangeResponse
+     */
+    public function setFromWayBill(string $fromWayBill): LastReservedShipmentNumberRangeResponse
+    {
+        $this->fromWayBill = $fromWayBill;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getToWayBill(): string
+    {
+        return $this->toWayBill;
+    }
+
+    /**
+     * @param string $toWayBill
+     * @return LastReservedShipmentNumberRangeResponse
+     */
+    public function setToWayBill(string $toWayBill): LastReservedShipmentNumberRangeResponse
+    {
+        $this->toWayBill = $toWayBill;
+        return $this;
+    }
+
+    /**
+     * @param object $obj
+     * @return LastReservedShipmentNumberRangeResponse
+     */
+    protected function parse($obj): LastReservedShipmentNumberRangeResponse
+    {
+        parent::parse($obj);
+
+        $this->setFromWayBill($obj->FromWayBill);
+        $this->setToWayBill($obj->ToWayBill);
+
+        return $this;
+    }
+
+    /**
+     * @param object $obj
+     * @return LastReservedShipmentNumberRangeResponse
+     */
+    public static function make($obj): LastReservedShipmentNumberRangeResponse
+    {
+        return (new self())->parse($obj);
+    }
+}

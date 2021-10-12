@@ -1,0 +1,41 @@
+{
+    "name": "omar-ehab/laravel-aramex",
+    "description": "Integrate Laravel with Aramex Web services",
+    "keywords": [
+        "Aramex",
+        "Aramex Web services",
+        "Laravel Aramex"
+    ],
+    "authors": [
+        {
+            "name": "Omar Ehab",
+            "email": "omar.ehab510@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^v8.63.0",
+        "ext-soap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OmarEhab\\Aramex\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OmarEhab\\Aramex\\AramexServiceProvider"
+            ],
+            "aliases": {
+                "Aramex": "OmarEhab\\Aramex\\Facades\\Aramex"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
