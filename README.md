@@ -1,8 +1,6 @@
 # Laravel Aramex
 
-Adds Aramex Functionality to your Laravel project.
-
-This repo is a full rebuild of DigitalCloud/aramex.
+Integrate your [Laravel](https://laravel.com) application with [Aramex](https://www.aramex.com/us/en) web services
 
 ## Table of Contents
 
