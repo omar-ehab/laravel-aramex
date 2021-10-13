@@ -61,7 +61,7 @@ class Address implements Normalize
      * Additional Address information, such as the building number, block, street name.
      * More than 3 characters
      *
-     * @param string|null $line1
+     * @param string $line1
      * @return $this
      */
     public function setLine1(string $line1): Address
@@ -71,7 +71,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLine2(): ?string
     {
@@ -91,7 +91,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLine3(): ?string
     {
@@ -113,7 +113,7 @@ class Address implements Normalize
     /**
      * Address City. Conditional: Required if the post code is not given.
      *
-     * @return string
+     * @return string|null
      */
     public function getCity(): ?string
     {
@@ -124,7 +124,7 @@ class Address implements Normalize
      * Address City.
      * Conditional: Required if the post code is not given.
      *
-     * @param string $city
+     * @param string|null $city
      * @return $this
      */
     public function setCity(string $city): Address
@@ -134,7 +134,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getStateOrProvinceCode(): ?string
     {
@@ -155,7 +155,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPostCode(): ?string
     {
@@ -196,7 +196,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getLongitude(): ?float
     {
@@ -204,7 +204,7 @@ class Address implements Normalize
     }
 
     /**
-     * @param float $longitude
+     * @param float|null $longitude
      * @return $this
      */
     public function setLongitude(float $longitude): Address
@@ -214,7 +214,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getLatitude(): ?float
     {
@@ -222,7 +222,7 @@ class Address implements Normalize
     }
 
     /**
-     * @param float $latitude
+     * @param float|null $latitude
      * @return $this
      */
     public function setLatitude(float $latitude): Address
@@ -232,7 +232,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getBuildingNumber(): ?string
     {
@@ -250,7 +250,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getBuildingName(): ?string
     {
@@ -268,7 +268,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getFloor(): ?int
     {
@@ -286,7 +286,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getApartment(): ?string
     {
@@ -305,7 +305,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPoBox(): ?string
     {
@@ -323,7 +323,7 @@ class Address implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription(): ?string
     {
