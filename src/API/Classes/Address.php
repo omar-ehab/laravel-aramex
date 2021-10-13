@@ -84,7 +84,7 @@ class Address implements Normalize
      * @param string|null $line2
      * @return $this
      */
-    public function setLine2(string $line2): Address
+    public function setLine2(?string $line2): Address
     {
         $this->line2 = $line2;
         return $this;
@@ -104,7 +104,7 @@ class Address implements Normalize
      * @param string|null $line3
      * @return $this
      */
-    public function setLine3(string $line3): Address
+    public function setLine3(?string $line3): Address
     {
         $this->line3 = $line3;
         return $this;
@@ -127,7 +127,7 @@ class Address implements Normalize
      * @param string|null $city
      * @return $this
      */
-    public function setCity(string $city): Address
+    public function setCity(?string $city): Address
     {
         $this->city = $city;
         return $this;
@@ -148,7 +148,7 @@ class Address implements Normalize
      * @param string|null $stateOrProvinceCode
      * @return $this
      */
-    public function setStateOrProvinceCode(string $stateOrProvinceCode): Address
+    public function setStateOrProvinceCode(?string $stateOrProvinceCode): Address
     {
         $this->stateOrProvinceCode = $stateOrProvinceCode;
         return $this;
@@ -169,7 +169,7 @@ class Address implements Normalize
      * @param string|null $postCode
      * @return $this
      */
-    public function setPostCode(string $postCode): Address
+    public function setPostCode(?string $postCode): Address
     {
         $this->postCode = $postCode;
         return $this;
@@ -207,7 +207,7 @@ class Address implements Normalize
      * @param float|null $longitude
      * @return $this
      */
-    public function setLongitude(float $longitude): Address
+    public function setLongitude(?float $longitude): Address
     {
         $this->longitude = $longitude;
         return $this;
@@ -225,7 +225,7 @@ class Address implements Normalize
      * @param float|null $latitude
      * @return $this
      */
-    public function setLatitude(float $latitude): Address
+    public function setLatitude(?float $latitude): Address
     {
         $this->latitude = $latitude;
         return $this;
@@ -243,7 +243,7 @@ class Address implements Normalize
      * @param string|null $buildingNumber
      * @return $this
      */
-    public function setBuildingNumber(string $buildingNumber): Address
+    public function setBuildingNumber(?string $buildingNumber): Address
     {
         $this->buildingNumber = $buildingNumber;
         return $this;
@@ -261,7 +261,7 @@ class Address implements Normalize
      * @param string|null $buildingName
      * @return $this
      */
-    public function setBuildingName(string $buildingName): Address
+    public function setBuildingName(?string $buildingName): Address
     {
         $this->buildingName = $buildingName;
         return $this;
@@ -279,7 +279,7 @@ class Address implements Normalize
      * @param int|null $floor
      * @return $this
      */
-    public function setFloor(int $floor): Address
+    public function setFloor(?int $floor): Address
     {
         $this->floor = $floor;
         return $this;
@@ -298,7 +298,7 @@ class Address implements Normalize
      * @param string|null $apartment
      * @return $this
      */
-    public function setApartment(string $apartment): Address
+    public function setApartment(?string $apartment): Address
     {
         $this->apartment = $apartment;
         return $this;
@@ -316,7 +316,7 @@ class Address implements Normalize
      * @param string|null $poBox
      * @return $this
      */
-    public function setPoBox(string $poBox): Address
+    public function setPoBox(?string $poBox): Address
     {
         $this->poBox = $poBox;
         return $this;
@@ -334,7 +334,7 @@ class Address implements Normalize
      * @param string|null $description
      * @return $this
      */
-    public function setDescription(string $description): Address
+    public function setDescription(?string $description): Address
     {
         $this->description = $description;
         return $this;
