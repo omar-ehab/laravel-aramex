@@ -45,10 +45,10 @@ class ShipmentTrackingResponse extends Response
      */
     protected function parse($obj): ShipmentTrackingResponse
     {
-        dd($obj);
         parent::parse($obj);
         try {
             if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
+                dd($result);
                 $this->addResult(TrackingResult::parse($result));
             }
         } catch (Exception $e) {
