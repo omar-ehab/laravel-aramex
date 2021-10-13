@@ -29,10 +29,10 @@ class ShipmentTrackingResponse extends Response
     }
 
     /**
-     * @param TrackingResult $result
+     * @param $result
      * @return ShipmentTrackingResponse
      */
-    public function addResult(TrackingResult $result): ShipmentTrackingResponse
+    public function addResult($result): ShipmentTrackingResponse
     {
         $this->results[] = $result;
         return $this;
@@ -48,15 +48,16 @@ class ShipmentTrackingResponse extends Response
         parent::parse($obj);
         try {
             if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
-
                 if(is_array($result)){
                     foreach ($result as $res) {
+                        $results = [];
                         foreach ($res->Value->TrackingResult as $trackingResult) {
-                            $this->addResult(TrackingResult::parse($trackingResult));
+                            array_push($results, TrackingResult::parse($trackingResult));
                         }
+                        $this->addResult(["key" => $res->Key, "value" => $results]);
                     }
                 } else {
-                    $this->addResult(TrackingResult::parse($result->Value->TrackingResult));
+                    $this->addResult(["key" => $result->Key, "value" => TrackingResult::parse($result->Value->TrackingResult)]);
                 }
             }
         } catch (Exception $e) {
