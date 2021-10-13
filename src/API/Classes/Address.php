@@ -29,6 +29,12 @@ class Address implements Normalize
     private ?string $poBox;
     private ?string $description;
 
+    public function __construct($line1, $countryCode)
+    {
+        $this->line1 = $line1;
+        $this->countryCode = $countryCode;
+    }
+
     /**
      * @return string
      */
