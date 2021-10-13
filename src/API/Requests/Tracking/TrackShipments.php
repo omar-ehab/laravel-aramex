@@ -18,8 +18,8 @@ class TrackShipments extends API implements Normalize
     protected string $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
     protected string $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
 
-    private array $shipments;
-    private ?bool $getLastTrackingUpdateOnly;
+    private array $shipments = [];
+    private ?bool $getLastTrackingUpdateOnly = null;
 
     /**
      * @return ShipmentTrackingResponse
@@ -50,10 +50,10 @@ class TrackShipments extends API implements Normalize
     }
 
     /**
-     * @param bool $getLastTrackingUpdateOnly
+     * @param bool|null $getLastTrackingUpdateOnly
      * @return TrackShipments
      */
-    public function setGetLastTrackingUpdateOnly(bool $getLastTrackingUpdateOnly = null): TrackShipments
+    public function setGetLastTrackingUpdateOnly(bool $getLastTrackingUpdateOnly): TrackShipments
     {
         $this->getLastTrackingUpdateOnly = $getLastTrackingUpdateOnly;
         return $this;

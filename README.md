@@ -27,7 +27,6 @@ This repo is a full rebuild of DigitalCloud/aramex.
     * [Tracking](#tracking)
         * [Track Pickup](#track-pickup)
         * [Track Shipments](#track-shipments)
-* [Credits](#credits)
 
 ## Installation
 
