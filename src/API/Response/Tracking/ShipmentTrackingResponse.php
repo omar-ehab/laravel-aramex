@@ -57,14 +57,15 @@ class ShipmentTrackingResponse extends Response
                         $this->addResult(["key" => $res->Key, "value" => $results]);
                     }
                 } else {
-                    $this->addResult(["key" => $result->Key, "value" => TrackingResult::parse($result->Value->TrackingResult)]);
+                    $results = [];
+                    foreach ($result->Value->TrackingResult as $trackingResult) {
+                        array_push($results, TrackingResult::parse($trackingResult));
+                    }
+                    $this->addResult(["key" => $result->Key, "value" => $results]);
                 }
             }
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
-//            if($obj->NonExistingWaybills->count()) {
-//                throw new Exception("there is no shipments with numbers: " . $obj->NonExistingWaybills->first()->string);
-//            }
         }
 
 
