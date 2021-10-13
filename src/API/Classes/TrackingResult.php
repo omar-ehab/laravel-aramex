@@ -209,9 +209,6 @@ class TrackingResult
      */
     public static function parse(object $obj)
     {
-        $obj = $obj->Value->TrackingResult;
-        dd($obj);
-
         return (new self())
             ->setWaybillNumber($obj->WaybillNumber)
             ->setUpdateCode($obj->UpdateCode)

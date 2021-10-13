@@ -51,10 +51,12 @@ class ShipmentTrackingResponse extends Response
 
                 if(is_array($result)){
                     foreach ($result as $res) {
-                        $this->addResult(TrackingResult::parse($res));
+                        foreach ($res->Value->TrackingResult as $trackingResult) {
+                            $this->addResult(TrackingResult::parse($trackingResult));
+                        }
                     }
                 } else {
-                    $this->addResult(TrackingResult::parse($result));
+                    $this->addResult(TrackingResult::parse($result->Value->TrackingResult));
                 }
             }
         } catch (Exception $e) {
