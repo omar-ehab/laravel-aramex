@@ -18,10 +18,10 @@ abstract class API implements Normalize
      */
     protected SoapClient $soapClient;
     protected ClientInfo $clientInfo;
-    protected Transaction $transaction;
-    protected string $test_wsdl;
-    protected string $live_wsdl;
-    protected string $environment;
+    protected ?Transaction $transaction = null;
+    protected string $test_wsdl = "";
+    protected string $live_wsdl = "";
+    protected string $environment = "";
 
     /**
      * @throws SoapFault
