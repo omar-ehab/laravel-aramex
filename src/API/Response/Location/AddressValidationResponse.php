@@ -58,10 +58,6 @@ class AddressValidationResponse extends Response
     protected function parse($obj): AddressValidationResponse
     {
         parent::parse($obj);
-        if ($obj->HasErrors && !property_exists($obj->SuggestedAddresses, 'Address'))
-        {
-            throw new Exception($obj->Notifications->Notification->Message);
-        }
         if ($obj->HasErrors && property_exists($obj->SuggestedAddresses, 'Address'))
         {
             $address = new Address($obj->SuggestedAddresses->Address->Line1, $obj->SuggestedAddresses->Address->CountryCode);
