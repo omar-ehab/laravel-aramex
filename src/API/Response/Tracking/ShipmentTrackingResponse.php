@@ -2,6 +2,7 @@
 
 namespace OmarEhab\Aramex\API\Response\Tracking;
 
+use Exception;
 use OmarEhab\Aramex\API\Classes\TrackingResult;
 use OmarEhab\Aramex\API\Response\Response;
 
@@ -40,13 +41,21 @@ class ShipmentTrackingResponse extends Response
     /**
      * @param object $obj
      * @return ShipmentTrackingResponse
+     * @throws Exception
      */
     protected function parse($obj): ShipmentTrackingResponse
     {
         parent::parse($obj);
-        if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
-            $this->addResult(TrackingResult::parse($result));
+        try {
+            if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
+                $this->addResult(TrackingResult::parse($result));
+            }
+        } catch (Exception $e) {
+            if($obj->NonExistingWaybills->count()) {
+                throw new Exception("there is no shipments with numbers: " . $obj->NonExistingWaybills->first()->string);
+            }
         }
+
 
         return $this;
     }
@@ -54,9 +63,14 @@ class ShipmentTrackingResponse extends Response
     /**
      * @param object $obj
      * @return ShipmentTrackingResponse
+     * @throws Exception
      */
     public static function make($obj): ShipmentTrackingResponse
     {
-        return (new self())->parse($obj);
+        try {
+            return (new self())->parse($obj);
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
 }
