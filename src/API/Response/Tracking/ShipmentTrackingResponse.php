@@ -57,9 +57,10 @@ class ShipmentTrackingResponse extends Response
                 }
             }
         } catch (Exception $e) {
-            if($obj->NonExistingWaybills->count()) {
-                throw new Exception("there is no shipments with numbers: " . $obj->NonExistingWaybills->first()->string);
-            }
+            throw new Exception($e->getMessage());
+//            if($obj->NonExistingWaybills->count()) {
+//                throw new Exception("there is no shipments with numbers: " . $obj->NonExistingWaybills->first()->string);
+//            }
         }
 
 
