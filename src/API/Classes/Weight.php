@@ -16,6 +16,12 @@ class Weight implements Normalize
     private string $unit;
     private float $value;
 
+    public function __construct($value, $unit = 'KG')
+    {
+        $this->value = $value;
+        $this->unit = $unit;
+    }
+
     /**
      * @return string
      */

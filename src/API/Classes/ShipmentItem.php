@@ -20,6 +20,15 @@ class ShipmentItem implements Normalize
     private ?string $comments;
     private ?string $reference;
 
+    public function __construct(int $quantity, Weight $weight)
+    {
+        $this->quantity = $quantity;
+        $this->weight = $weight;
+        $this->packageType = null;
+        $this->comments = null;
+        $this->reference = null;
+    }
+
     /**
      * @return string
      */
