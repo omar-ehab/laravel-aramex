@@ -2,6 +2,7 @@
 
 namespace OmarEhab\Aramex\API\Response\Location;
 
+use Exception;
 use OmarEhab\Aramex\API\Classes\Address;
 use OmarEhab\Aramex\API\Response\Response;
 
@@ -47,14 +48,17 @@ class AddressValidationResponse extends Response
     /**
      * @param object $obj
      * @return AddressValidationResponse
+     * @throws Exception
      */
     protected function parse($obj): AddressValidationResponse
     {
         parent::parse($obj);
-
-        dd($obj);
-
-        // todo
+        if ($obj->HasErrors){
+            throw new Exception($obj->Notification->Message);
+        }
+        if($obj->SuggestedAddresses) {
+            // todo
+        }
         // Add Suggested Addresses
 
         return $this;
