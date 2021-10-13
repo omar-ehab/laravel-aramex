@@ -103,7 +103,7 @@ class AddressValidationResponse extends Response
                         break;
                 }
             }
-            dd($address);
+            $this->addSuggestedAddresses($address);
         }
 
         return $this;
