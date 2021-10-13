@@ -50,7 +50,7 @@ abstract class API implements Normalize
     }
 
     /**
-     * @return Transaction
+     * @return Transaction|null
      */
     public function getTransaction(): Transaction
     {
