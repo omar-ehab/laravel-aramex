@@ -15,17 +15,17 @@ use OmarEhab\Aramex\API\Response\Tracking\ShipmentTrackingResponse;
  */
 class TrackShipments extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
 
-    private array $shipments = [];
-    private ?bool $getLastTrackingUpdateOnly = null;
+    private $shipments;
+    private $getLastTrackingUpdateOnly;
 
     /**
      * @return ShipmentTrackingResponse
      * @throws Exception
      */
-    public function run(): ShipmentTrackingResponse
+    public function run()
     {
         $this->validate();
 
@@ -44,7 +44,7 @@ class TrackShipments extends API implements Normalize
     /**
      * @return bool
      */
-    public function getGetLastTrackingUpdateOnly(): ?bool
+    public function getGetLastTrackingUpdateOnly()
     {
         return $this->getLastTrackingUpdateOnly;
     }
@@ -53,7 +53,7 @@ class TrackShipments extends API implements Normalize
      * @param bool|null $getLastTrackingUpdateOnly
      * @return TrackShipments
      */
-    public function setGetLastTrackingUpdateOnly(bool $getLastTrackingUpdateOnly): TrackShipments
+    public function setGetLastTrackingUpdateOnly(bool $getLastTrackingUpdateOnly)
     {
         $this->getLastTrackingUpdateOnly = $getLastTrackingUpdateOnly;
         return $this;
@@ -62,7 +62,7 @@ class TrackShipments extends API implements Normalize
     /**
      * @return string[]
      */
-    public function getShipments(): array
+    public function getShipments()
     {
         return $this->shipments;
     }
@@ -71,7 +71,7 @@ class TrackShipments extends API implements Normalize
      * @param string[] $shipments
      * @return TrackShipments
      */
-    public function setShipments(array $shipments): TrackShipments
+    public function setShipments(array $shipments)
     {
         $this->shipments = $shipments;
         return $this;
@@ -81,13 +81,13 @@ class TrackShipments extends API implements Normalize
      * @param string $shipment
      * @return TrackShipments
      */
-    public function addShipment(string $shipment): TrackShipments
+    public function addShipment(string $shipment)
     {
         $this->shipments[] = $shipment;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Shipments' => $this->getShipments(),

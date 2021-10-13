@@ -12,20 +12,20 @@ use OmarEhab\Aramex\API\Response\Rate\RateCalculatorResponse;
 
 class CalculateRate extends API implements Normalize
 {
-    private Address $originalAddress;
-    private Address $destinationAddress;
-    private ShipmentDetails $shipmentDetails;
-    private ?string $preferredCurrencyCode;
+    private $originalAddress;
+    private $destinationAddress;
+    private $shipmentDetails;
+    private $preferredCurrencyCode;
 
-    protected string $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
 
 
     /**
      * @return RateCalculatorResponse
      * @throws Exception
      */
-    public function run(): RateCalculatorResponse
+    public function run()
     {
         $this->validate();
 
@@ -52,7 +52,7 @@ class CalculateRate extends API implements Normalize
     /**
      * @return Address
      */
-    public function getOriginalAddress(): Address
+    public function getOriginalAddress()
     {
         return $this->originalAddress;
     }
@@ -64,7 +64,7 @@ class CalculateRate extends API implements Normalize
      * @param Address $originalAddress
      * @return $this
      */
-    public function setOriginalAddress(Address $originalAddress): CalculateRate
+    public function setOriginalAddress(Address $originalAddress)
     {
         $this->originalAddress = $originalAddress;
         return $this;
@@ -73,7 +73,7 @@ class CalculateRate extends API implements Normalize
     /**
      * @return Address
      */
-    public function getDestinationAddress(): Address
+    public function getDestinationAddress()
     {
         return $this->destinationAddress;
     }
@@ -85,7 +85,7 @@ class CalculateRate extends API implements Normalize
      * @param Address $destinationAddress
      * @return $this
      */
-    public function setDestinationAddress(Address $destinationAddress): CalculateRate
+    public function setDestinationAddress(Address $destinationAddress)
     {
         $this->destinationAddress = $destinationAddress;
         return $this;
@@ -94,7 +94,7 @@ class CalculateRate extends API implements Normalize
     /**
      * @return ShipmentDetails
      */
-    public function getShipmentDetails(): ShipmentDetails
+    public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
@@ -106,7 +106,7 @@ class CalculateRate extends API implements Normalize
      * @param ShipmentDetails $shipmentDetails
      * @return $this
      */
-    public function setShipmentDetails(ShipmentDetails $shipmentDetails): CalculateRate
+    public function setShipmentDetails(ShipmentDetails $shipmentDetails)
     {
         $this->shipmentDetails = $shipmentDetails;
         return $this;
@@ -116,7 +116,7 @@ class CalculateRate extends API implements Normalize
     /**
      * @return string
      */
-    public function getPreferredCurrencyCode(): ?string
+    public function getPreferredCurrencyCode()
     {
         return $this->preferredCurrencyCode;
     }
@@ -131,7 +131,7 @@ class CalculateRate extends API implements Normalize
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'OriginAddress' => $this->getOriginalAddress()->normalize(),

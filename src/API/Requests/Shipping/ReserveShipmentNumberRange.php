@@ -15,18 +15,18 @@ use OmarEhab\Aramex\API\Response\Shipping\ReserveRangeResponse;
  */
 class ReserveShipmentNumberRange extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private string $entity;
-    private string $productGroup;
-    private int $count;
+    private $entity;
+    private $productGroup;
+    private $count;
 
     /**
      * @return ReserveRangeResponse
      * @throws Exception
      */
-    public function run(): ReserveRangeResponse
+    public function run()
     {
         $this->validate();
 
@@ -52,7 +52,7 @@ class ReserveShipmentNumberRange extends API implements Normalize
     /**
      * @return string
      */
-    public function getEntity(): string
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -65,7 +65,7 @@ class ReserveShipmentNumberRange extends API implements Normalize
      * @param string $entity
      * @return ReserveShipmentNumberRange
      */
-    public function setEntity(string $entity): ReserveShipmentNumberRange
+    public function setEntity(string $entity)
     {
         $this->entity = $entity;
         return $this;
@@ -74,7 +74,7 @@ class ReserveShipmentNumberRange extends API implements Normalize
     /**
      * @return string
      */
-    public function getProductGroup(): string
+    public function getProductGroup()
     {
         return $this->productGroup;
     }
@@ -87,7 +87,7 @@ class ReserveShipmentNumberRange extends API implements Normalize
      * @param string $productGroup
      * @return ReserveShipmentNumberRange
      */
-    public function setProductGroup(string $productGroup): ReserveShipmentNumberRange
+    public function setProductGroup(string $productGroup)
     {
         $this->productGroup = $productGroup;
         return $this;
@@ -108,13 +108,13 @@ class ReserveShipmentNumberRange extends API implements Normalize
      * @param int $count
      * @return ReserveShipmentNumberRange
      */
-    public function setCount(int $count): ReserveShipmentNumberRange
+    public function setCount(int $count)
     {
         $this->count = $count;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Entity' => $this->getEntity(),

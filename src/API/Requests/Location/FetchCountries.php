@@ -15,14 +15,14 @@ use OmarEhab\Aramex\API\Response\Location\CountriesFetchingResponse;
  */
 class FetchCountries extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
 
     /**
      * @return CountriesFetchingResponse
      * @throws Exception
      */
-    public function run(): CountriesFetchingResponse
+    public function run()
     {
         $this->validate();
 

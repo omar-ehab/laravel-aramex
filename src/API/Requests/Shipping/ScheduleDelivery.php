@@ -17,26 +17,26 @@ use OmarEhab\Aramex\API\Response\Shipping\ScheduledDeliveryResponse;
  */
 class ScheduleDelivery extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private Address $address;
-    private ScheduledDelivery $scheduledDelivery;
-    private string $shipmentNumber;
-    private string $productGroup;
-    private string $entity;
-    private string $consigneePhone;
-    private string $shipperNumber;
-    private string $shipperReference;
-    private string $reference1;
-    private string $reference2;
-    private string $reference3;
+    private $address;
+    private $scheduledDelivery;
+    private $shipmentNumber;
+    private $productGroup;
+    private $entity;
+    private $consigneePhone;
+    private $shipperNumber;
+    private $shipperReference;
+    private $reference1;
+    private $reference2;
+    private $reference3;
 
     /**
      * @return ScheduledDeliveryResponse
      * @throws Exception
      */
-    public function run(): ScheduledDeliveryResponse
+    public function run()
     {
         $this->validate();
 
@@ -46,7 +46,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return Address
      */
-    public function getAddress(): Address
+    public function getAddress()
     {
         return $this->address;
     }
@@ -55,7 +55,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param Address $address
      * @return ScheduleDelivery
      */
-    public function setAddress(Address $address): ScheduleDelivery
+    public function setAddress(Address $address)
     {
         $this->address = $address;
         return $this;
@@ -64,7 +64,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return ScheduledDelivery
      */
-    public function getScheduledDelivery(): ScheduledDelivery
+    public function getScheduledDelivery()
     {
         return $this->scheduledDelivery;
     }
@@ -73,7 +73,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param ScheduledDelivery $scheduledDelivery
      * @return ScheduleDelivery
      */
-    public function setScheduledDelivery(ScheduledDelivery $scheduledDelivery): ScheduleDelivery
+    public function setScheduledDelivery(ScheduledDelivery $scheduledDelivery)
     {
         $this->scheduledDelivery = $scheduledDelivery;
         return $this;
@@ -82,7 +82,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getShipmentNumber(): string
+    public function getShipmentNumber()
     {
         return $this->shipmentNumber;
     }
@@ -91,7 +91,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $shipmentNumber
      * @return ScheduleDelivery
      */
-    public function setShipmentNumber(string $shipmentNumber): ScheduleDelivery
+    public function setShipmentNumber(string $shipmentNumber)
     {
         $this->shipmentNumber = $shipmentNumber;
         return $this;
@@ -100,7 +100,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getProductGroup(): string
+    public function getProductGroup()
     {
         return $this->productGroup;
     }
@@ -109,7 +109,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $productGroup
      * @return ScheduleDelivery
      */
-    public function setProductGroup(string $productGroup): ScheduleDelivery
+    public function setProductGroup(string $productGroup)
     {
         $this->productGroup = $productGroup;
         return $this;
@@ -118,7 +118,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getEntity(): string
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -127,7 +127,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $entity
      * @return ScheduleDelivery
      */
-    public function setEntity(string $entity): ScheduleDelivery
+    public function setEntity(string $entity)
     {
         $this->entity = $entity;
         return $this;
@@ -136,7 +136,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getConsigneePhone(): string
+    public function getConsigneePhone()
     {
         return $this->consigneePhone;
     }
@@ -145,7 +145,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $consigneePhone
      * @return ScheduleDelivery
      */
-    public function setConsigneePhone(string $consigneePhone): ScheduleDelivery
+    public function setConsigneePhone(string $consigneePhone)
     {
         $this->consigneePhone = $consigneePhone;
         return $this;
@@ -154,7 +154,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getShipperNumber(): string
+    public function getShipperNumber()
     {
         return $this->shipperNumber;
     }
@@ -163,7 +163,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $shipperNumber
      * @return ScheduleDelivery
      */
-    public function setShipperNumber(string $shipperNumber): ScheduleDelivery
+    public function setShipperNumber(string $shipperNumber)
     {
         $this->shipperNumber = $shipperNumber;
         return $this;
@@ -172,7 +172,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getShipperReference(): string
+    public function getShipperReference()
     {
         return $this->shipperReference;
     }
@@ -181,7 +181,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $shipperReference
      * @return ScheduleDelivery
      */
-    public function setShipperReference(string $shipperReference): ScheduleDelivery
+    public function setShipperReference(string $shipperReference)
     {
         $this->shipperReference = $shipperReference;
         return $this;
@@ -190,7 +190,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getReference1(): string
+    public function getReference1()
     {
         return $this->reference1;
     }
@@ -199,7 +199,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $reference1
      * @return ScheduleDelivery
      */
-    public function setReference1(string $reference1): ScheduleDelivery
+    public function setReference1(string $reference1)
     {
         $this->reference1 = $reference1;
         return $this;
@@ -208,7 +208,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getReference2(): string
+    public function getReference2()
     {
         return $this->reference2;
     }
@@ -217,7 +217,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $reference2
      * @return ScheduleDelivery
      */
-    public function setReference2(string $reference2): ScheduleDelivery
+    public function setReference2(string $reference2)
     {
         $this->reference2 = $reference2;
         return $this;
@@ -226,7 +226,7 @@ class ScheduleDelivery extends API implements Normalize
     /**
      * @return string
      */
-    public function getReference3(): string
+    public function getReference3()
     {
         return $this->reference3;
     }
@@ -235,7 +235,7 @@ class ScheduleDelivery extends API implements Normalize
      * @param string $reference3
      * @return ScheduleDelivery
      */
-    public function setReference3(string $reference3): ScheduleDelivery
+    public function setReference3(string $reference3)
     {
         $this->reference3 = $reference3;
         return $this;

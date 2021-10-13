@@ -17,16 +17,16 @@ use OmarEhab\Aramex\API\Response\Location\AddressValidationResponse;
  */
 class ValidateAddress extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
 
-    private Address $address;
+    private $address;
 
     /**
      * @return AddressValidationResponse
      * @throws Exception
      */
-    public function run(): AddressValidationResponse
+    public function run()
     {
         $this->validate();
 
@@ -46,7 +46,7 @@ class ValidateAddress extends API implements Normalize
     /**
      * @return Address
      */
-    public function getAddress(): Address
+    public function getAddress()
     {
         return $this->address;
     }
@@ -55,14 +55,14 @@ class ValidateAddress extends API implements Normalize
      * @param Address $address
      * @return ValidateAddress
      */
-    public function setAddress(Address $address): ValidateAddress
+    public function setAddress(Address $address)
     {
         $this->address = $address;
         return $this;
     }
 
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Address' => $this->getAddress()->normalize()

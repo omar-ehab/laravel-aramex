@@ -15,17 +15,17 @@ use OmarEhab\Aramex\API\Response\Shipping\PickupCancellationResponse;
  */
 class CancelPickup extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private string $pickupGUID;
-    private ?string $comments;
+    private $pickupGUID;
+    private $comments;
 
     /**
      * @return PickupCancellationResponse
      * @throws Exception
      */
-    public function run(): PickupCancellationResponse
+    public function run()
     {
         $this->validate();
 
@@ -47,7 +47,7 @@ class CancelPickup extends API implements Normalize
     /**
      * @return string
      */
-    public function getPickupGUID(): string
+    public function getPickupGUID()
     {
         return $this->pickupGUID;
     }
@@ -56,7 +56,7 @@ class CancelPickup extends API implements Normalize
      * @param string $pickupGUID
      * @return CancelPickup
      */
-    public function setPickupGUID(string $pickupGUID): CancelPickup
+    public function setPickupGUID(string $pickupGUID)
     {
         $this->pickupGUID = $pickupGUID;
         return $this;
@@ -65,7 +65,7 @@ class CancelPickup extends API implements Normalize
     /**
      * @return string|null
      */
-    public function getComments(): ?string
+    public function getComments()
     {
         return $this->comments;
     }
@@ -74,13 +74,13 @@ class CancelPickup extends API implements Normalize
      * @param string|null $comments
      * @return CancelPickup
      */
-    public function setComments(string $comments = null): CancelPickup
+    public function setComments(string $comments = null)
     {
         $this->comments = $comments;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'PickupGUID' => $this->getPickupGUID(),

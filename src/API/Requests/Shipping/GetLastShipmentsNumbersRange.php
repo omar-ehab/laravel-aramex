@@ -15,17 +15,17 @@ use OmarEhab\Aramex\API\Response\Shipping\LastReservedShipmentNumberRangeRespons
  */
 class GetLastShipmentsNumbersRange extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private string $entity;
-    private string $productGroup;
+    private $entity;
+    private $productGroup;
 
     /**
      * @return LastReservedShipmentNumberRangeResponse
      * @throws Exception
      */
-    public function run(): LastReservedShipmentNumberRangeResponse
+    public function run()
     {
         $this->validate();
 
@@ -51,7 +51,7 @@ class GetLastShipmentsNumbersRange extends API implements Normalize
     /**
      * @return string
      */
-    public function getEntity(): string
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -70,7 +70,7 @@ class GetLastShipmentsNumbersRange extends API implements Normalize
     /**
      * @return string
      */
-    public function getProductGroup(): string
+    public function getProductGroup()
     {
         return $this->productGroup;
     }
@@ -79,13 +79,13 @@ class GetLastShipmentsNumbersRange extends API implements Normalize
      * @param string $productGroup
      * @return GetLastShipmentsNumbersRange
      */
-    public function setProductGroup(string $productGroup): GetLastShipmentsNumbersRange
+    public function setProductGroup(string $productGroup)
     {
         $this->productGroup = $productGroup;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Entity' => $this->getEntity(),

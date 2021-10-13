@@ -18,17 +18,17 @@ use OmarEhab\Aramex\API\Response\Shipping\PickupCreationResponse;
  */
 class CreatePickup extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private Pickup $pickup;
-    private ?LabelInfo $labelInfo;
+    private $pickup;
+    private $labelInfo;
 
     /**
      * @return PickupCreationResponse
      * @throws Exception
      */
-    public function run(): PickupCreationResponse
+    public function run()
     {
         $this->validate();
 
@@ -38,7 +38,7 @@ class CreatePickup extends API implements Normalize
     /**
      * @return Pickup
      */
-    public function getPickup(): Pickup
+    public function getPickup()
     {
         return $this->pickup;
     }
@@ -47,7 +47,7 @@ class CreatePickup extends API implements Normalize
      * @param Pickup $pickup
      * @return CreatePickup
      */
-    public function setPickup(Pickup $pickup): CreatePickup
+    public function setPickup(Pickup $pickup)
     {
         $this->pickup = $pickup;
         return $this;
@@ -56,7 +56,7 @@ class CreatePickup extends API implements Normalize
     /**
      * @return LabelInfo|null
      */
-    public function getLabelInfo(): ?LabelInfo
+    public function getLabelInfo()
     {
         return $this->labelInfo;
     }
@@ -65,13 +65,13 @@ class CreatePickup extends API implements Normalize
      * @param LabelInfo $labelInfo
      * @return CreatePickup
      */
-    public function setLabelInfo(LabelInfo $labelInfo): CreatePickup
+    public function setLabelInfo(LabelInfo $labelInfo)
     {
         $this->labelInfo = $labelInfo;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Pickup' => $this->getPickup()->normalize(),

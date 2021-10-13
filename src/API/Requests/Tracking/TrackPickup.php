@@ -15,18 +15,18 @@ use OmarEhab\Aramex\API\Response\Tracking\PickupTrackingResponse;
  */
 class TrackPickup extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
 
-    private array $shipments = [];
-    private string $reference = "";
+    private array $shipments;
+    private string $reference;
     private $pickup;
 
     /**
      * @return PickupTrackingResponse
      * @throws Exception
      */
-    public function run(): PickupTrackingResponse
+    public function run()
     {
         $this->validate();
 
@@ -47,7 +47,7 @@ class TrackPickup extends API implements Normalize
     /**
      * @return array
      */
-    public function getShipments(): array
+    public function getShipments()
     {
         return $this->shipments;
     }
@@ -56,7 +56,7 @@ class TrackPickup extends API implements Normalize
      * @param array $shipments
      * @return TrackPickup
      */
-    public function setShipments(array $shipments): TrackPickup
+    public function setShipments(array $shipments)
     {
         $this->shipments = $shipments;
         return $this;
@@ -66,7 +66,7 @@ class TrackPickup extends API implements Normalize
      * @param string $shipment
      * @return TrackPickup
      */
-    public function addShipment(string $shipment): TrackPickup
+    public function addShipment(string $shipment)
     {
         $this->shipments[] = $shipment;
         return $this;
@@ -75,7 +75,7 @@ class TrackPickup extends API implements Normalize
     /**
      * @return string
      */
-    public function getReference(): string
+    public function getReference()
     {
         return $this->reference;
     }
@@ -84,7 +84,7 @@ class TrackPickup extends API implements Normalize
      * @param mixed $reference
      * @return TrackPickup
      */
-    public function setReference($reference): TrackPickup
+    public function setReference($reference)
     {
         $this->reference = $reference;
         return $this;
@@ -102,13 +102,13 @@ class TrackPickup extends API implements Normalize
      * @param mixed $pickup
      * @return TrackPickup
      */
-    public function setPickup($pickup): TrackPickup
+    public function setPickup($pickup)
     {
         $this->pickup = $pickup;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Shipments' => $this->getShipments(),

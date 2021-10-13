@@ -18,17 +18,17 @@ use OmarEhab\Aramex\API\Response\Shipping\ShipmentCreationResponse;
  */
 class CreateShipments extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private array $shipments;
-    private ?LabelInfo $labelInfo;
+    private $shipments;
+    private $labelInfo;
 
     /**
      * @return ShipmentCreationResponse
      * @throws Exception
      */
-    public function run(): ShipmentCreationResponse
+    public function run()
     {
         $this->validate();
 
@@ -47,7 +47,7 @@ class CreateShipments extends API implements Normalize
     /**
      * @return Shipment[]
      */
-    public function getShipments(): array
+    public function getShipments()
     {
         return $this->shipments;
     }
@@ -56,7 +56,7 @@ class CreateShipments extends API implements Normalize
      * @param Shipment[] $shipments
      * @return CreateShipments
      */
-    public function setShipments(array $shipments): CreateShipments
+    public function setShipments(array $shipments)
     {
         $this->shipments = $shipments;
         return $this;
@@ -66,7 +66,7 @@ class CreateShipments extends API implements Normalize
      * @param Shipment $shipment
      * @return CreateShipments
      */
-    public function addShipment(Shipment $shipment): CreateShipments
+    public function addShipment(Shipment $shipment)
     {
         $this->shipments[] = $shipment;
         return $this;
@@ -75,7 +75,7 @@ class CreateShipments extends API implements Normalize
     /**
      * @return LabelInfo|null
      */
-    public function getLabelInfo(): ?LabelInfo
+    public function getLabelInfo()
     {
         return $this->labelInfo;
     }
@@ -84,13 +84,13 @@ class CreateShipments extends API implements Normalize
      * @param LabelInfo $labelInfo
      * @return CreateShipments
      */
-    public function setLabelInfo(LabelInfo $labelInfo): CreateShipments
+    public function setLabelInfo(LabelInfo $labelInfo)
     {
         $this->labelInfo = $labelInfo;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'Shipments' => $this->getShipments() ? array_map(function ($item) {

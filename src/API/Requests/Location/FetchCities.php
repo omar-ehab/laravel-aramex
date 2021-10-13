@@ -17,18 +17,18 @@ use OmarEhab\Aramex\API\Response\Location\CitiesFetchingResponse;
  */
 class FetchCities extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
 
-    private ?string $countryCode;
-    private ?string $state;
-    private ?string $nameStartsWith;
+    private $countryCode;
+    private $state;
+    private $nameStartsWith;
 
     /**
      * @return CitiesFetchingResponse
      * @throws Exception
      */
-    public function run(): CitiesFetchingResponse
+    public function run()
     {
         $this->validate();
 
@@ -38,7 +38,7 @@ class FetchCities extends API implements Normalize
     /**
      * @return string
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -47,7 +47,7 @@ class FetchCities extends API implements Normalize
      * @param string $countryCode
      * @return FetchCities
      */
-    public function setCountryCode(string $countryCode): FetchCities
+    public function setCountryCode(string $countryCode)
     {
         $this->countryCode = $countryCode;
         return $this;
@@ -56,7 +56,7 @@ class FetchCities extends API implements Normalize
     /**
      * @return string|null
      */
-    public function getState(): ?string
+    public function getState()
     {
         return $this->state;
     }
@@ -65,7 +65,7 @@ class FetchCities extends API implements Normalize
      * @param string|null $state
      * @return FetchCities
      */
-    public function setState(?string $state): FetchCities
+    public function setState(?string $state)
     {
         $this->state = $state;
         return $this;
@@ -74,7 +74,7 @@ class FetchCities extends API implements Normalize
     /**
      * @return string|null
      */
-    public function getNameStartsWith(): ?string
+    public function getNameStartsWith()
     {
         return $this->nameStartsWith;
     }
@@ -83,13 +83,13 @@ class FetchCities extends API implements Normalize
      * @param string|null $nameStartsWith
      * @return FetchCities
      */
-    public function setNameStartsWith(?string $nameStartsWith): FetchCities
+    public function setNameStartsWith(?string $nameStartsWith)
     {
         $this->nameStartsWith = $nameStartsWith;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'CountryCode' => $this->getCountryCode(),

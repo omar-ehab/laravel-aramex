@@ -9,8 +9,8 @@ use OmarEhab\Aramex\API\Response\Location\StatesFetchingResponse;
 
 class FetchStates extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
 
     private string $countryCode;
 
@@ -18,7 +18,7 @@ class FetchStates extends API implements Normalize
      * @return StatesFetchingResponse
      * @throws Exception
      */
-    public function run(): StatesFetchingResponse
+    public function run()
     {
         $this->validate();
 
@@ -37,7 +37,7 @@ class FetchStates extends API implements Normalize
     /**
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -46,14 +46,14 @@ class FetchStates extends API implements Normalize
      * @param string $countryCode
      * @return FetchStates
      */
-    public function setCountryCode(string $countryCode): FetchStates
+    public function setCountryCode(string $countryCode)
     {
         $this->countryCode = $countryCode;
         return $this;
     }
 
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'CountryCode' => $this->getCountryCode()

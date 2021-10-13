@@ -18,7 +18,7 @@ abstract class API implements Normalize
      */
     protected $soapClient;
     protected $clientInfo;
-    protected  $transaction = null;
+    protected $transaction;
     protected $test_wsdl;
     protected $live_wsdl;
     protected $environment;
@@ -128,7 +128,7 @@ abstract class API implements Normalize
     /**
      * @return void
      */
-    private function fillClientInfoFromEnv(): void
+    private function fillClientInfoFromEnv()
     {
         $this->clientInfo = (new ClientInfo())
             ->setAccountCountryCode(config("aramex.$this->environment.country_code"))
@@ -145,7 +145,7 @@ abstract class API implements Normalize
         return config("aramex.$this->environment.number");
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return [
             'ClientInfo' => $this->getClientInfo()->normalize(),

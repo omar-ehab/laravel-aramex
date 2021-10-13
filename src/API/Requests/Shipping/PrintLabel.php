@@ -19,19 +19,19 @@ use OmarEhab\Aramex\API\Response\Shipping\LabelPrintingResponse;
  */
 class PrintLabel extends API implements Normalize
 {
-    protected string $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected string $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
+    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
 
-    private string $shipmentNumber;
-    private ?string $productGroup;
-    private ?string $originEntity;
-    private LabelInfo $labelInfo;
+    private $shipmentNumber;
+    private $productGroup;
+    private $originEntity;
+    private $labelInfo;
 
     /**
      * @return LabelPrintingResponse
      * @throws Exception
      */
-    public function run(): LabelPrintingResponse
+    public function run()
     {
         $this->validate();
 
@@ -57,7 +57,7 @@ class PrintLabel extends API implements Normalize
     /**
      * @return string
      */
-    public function getShipmentNumber(): string
+    public function getShipmentNumber()
     {
         return $this->shipmentNumber;
     }
@@ -66,7 +66,7 @@ class PrintLabel extends API implements Normalize
      * @param string $shipmentNumber
      * @return PrintLabel
      */
-    public function setShipmentNumber(string $shipmentNumber): PrintLabel
+    public function setShipmentNumber(string $shipmentNumber)
     {
         $this->shipmentNumber = $shipmentNumber;
         return $this;
@@ -75,7 +75,7 @@ class PrintLabel extends API implements Normalize
     /**
      * @return string|null
      */
-    public function getProductGroup(): ?string
+    public function getProductGroup()
     {
         return $this->productGroup;
     }
@@ -84,7 +84,7 @@ class PrintLabel extends API implements Normalize
      * @param string|null $productGroup
      * @return PrintLabel
      */
-    public function setProductGroup(string $productGroup = null): PrintLabel
+    public function setProductGroup(string $productGroup = null)
     {
         $this->productGroup = $productGroup;
         return $this;
@@ -93,7 +93,7 @@ class PrintLabel extends API implements Normalize
     /**
      * @return string|null
      */
-    public function getOriginEntity(): ?string
+    public function getOriginEntity()
     {
         return $this->originEntity;
     }
@@ -102,7 +102,7 @@ class PrintLabel extends API implements Normalize
      * @param string|null $originEntity
      * @return PrintLabel
      */
-    public function setOriginEntity(string $originEntity = null): PrintLabel
+    public function setOriginEntity(string $originEntity = null)
     {
         $this->originEntity = $originEntity;
         return $this;
@@ -111,7 +111,7 @@ class PrintLabel extends API implements Normalize
     /**
      * @return LabelInfo
      */
-    public function getLabelInfo(): LabelInfo
+    public function getLabelInfo()
     {
         return $this->labelInfo;
     }
@@ -120,13 +120,13 @@ class PrintLabel extends API implements Normalize
      * @param LabelInfo $labelInfo
      * @return PrintLabel
      */
-    public function setLabelInfo(LabelInfo $labelInfo): PrintLabel
+    public function setLabelInfo(LabelInfo $labelInfo)
     {
         $this->labelInfo = $labelInfo;
         return $this;
     }
 
-    public function normalize(): array
+    public function normalize()
     {
         return array_merge([
             'ShipmentNumber' => $this->getShipmentNumber(),
