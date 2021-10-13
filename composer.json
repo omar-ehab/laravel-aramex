@@ -15,7 +15,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
-        "laravel/framework": "^v8.63.0"
+        "laravel/framework": "^v8.63.0",
+      "ext-soap": "*"
     },
     "autoload": {
         "psr-4": {

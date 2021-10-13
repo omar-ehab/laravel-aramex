@@ -13,11 +13,11 @@ use OmarEhab\Aramex\API\Interfaces\Normalize;
  */
 class Transaction implements Normalize
 {
-    private string $reference1;
-    private string $reference2;
-    private string $reference3;
-    private string $reference4;
-    private string $reference5;
+    private string $reference1 = '';
+    private string $reference2 = '';
+    private string $reference3 = '';
+    private string $reference4 = '';
+    private string $reference5 = '';
 
     /**
      * @return string
