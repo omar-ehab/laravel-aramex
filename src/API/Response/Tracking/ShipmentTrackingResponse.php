@@ -44,7 +44,7 @@ class ShipmentTrackingResponse extends Response
     protected function parse($obj): ShipmentTrackingResponse
     {
         parent::parse($obj);
-        dd($obj->TrackingResults, $obj->NonExistingWaybills);
+        dd($obj->NonExistingWaybills);
         if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResult) {
             $this->addResult(TrackingResult::parse($result));
         }
