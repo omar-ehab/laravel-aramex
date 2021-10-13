@@ -39,12 +39,13 @@ class ShipmentTrackingResponse extends Response
     }
 
     /**
-     * @param object $obj
+     * @param $obj
      * @return ShipmentTrackingResponse
      * @throws Exception
      */
     protected function parse($obj): ShipmentTrackingResponse
     {
+        dd($obj);
         parent::parse($obj);
         try {
             if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
