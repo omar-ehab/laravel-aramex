@@ -47,7 +47,7 @@ class ShipmentTrackingResponse extends Response
     {
         parent::parse($obj);
         try {
-            if (array_key_exists('KeyValueOfstringArrayOfTrackingResultmFAkxlpY', $obj->TrackingResults) && $result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
+            if (property_exists($obj->TrackingResults, 'KeyValueOfstringArrayOfTrackingResultmFAkxlpY') && $result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
                 if(is_array($result)){
                     foreach ($result as $res) {
                         $results = [];
