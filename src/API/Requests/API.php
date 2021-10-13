@@ -16,12 +16,12 @@ abstract class API implements Normalize
      * @var ClientInfo $clientInfo
      * @var Transaction $transaction
      */
-    protected SoapClient $soapClient;
-    protected ClientInfo $clientInfo;
-    protected ?Transaction $transaction = null;
-    protected string $test_wsdl = "";
-    protected string $live_wsdl = "";
-    protected string $environment = "";
+    protected $soapClient;
+    protected $clientInfo;
+    protected  $transaction = null;
+    protected $test_wsdl;
+    protected $live_wsdl;
+    protected $environment;
 
     /**
      * @throws SoapFault
@@ -44,7 +44,7 @@ abstract class API implements Normalize
     /**
      * @return ClientInfo
      */
-    public function getClientInfo(): ClientInfo
+    public function getClientInfo
     {
         return $this->clientInfo;
     }
@@ -52,7 +52,7 @@ abstract class API implements Normalize
     /**
      * @return Transaction|null
      */
-    public function getTransaction(): Transaction
+    public function getTransaction()
     {
         return $this->transaction;
     }
@@ -61,7 +61,7 @@ abstract class API implements Normalize
      * @param Transaction $transaction
      * @return $this
      */
-    public function setTransaction(Transaction $transaction): API
+    public function setTransaction(Transaction $transaction)
     {
         $this->transaction = $transaction;
         return $this;
@@ -71,18 +71,18 @@ abstract class API implements Normalize
      * @param $environment
      * @return $this
      */
-    protected function setEnvironment($environment): API
+    protected function setEnvironment($environment)
     {
         $this->environment = $environment;
         return $this;
     }
 
-    public function useTestAsEnvironment(): API
+    public function useTestAsEnvironment()
     {
         return $this->setEnvironment('test');
     }
 
-    public function useLiveAsEnvironment(): API
+    public function useLiveAsEnvironment()
     {
         return $this->setEnvironment('live');
     }
@@ -90,7 +90,7 @@ abstract class API implements Normalize
     /**
      * @return bool
      */
-    public function isTest(): bool
+    public function isTest()
     {
         return $this->environment === "test";
     }
@@ -98,7 +98,7 @@ abstract class API implements Normalize
     /**
      * @return bool
      */
-    public function isLive(): bool
+    public function isLive()
     {
         return $this->environment === "live";
     }
@@ -106,7 +106,7 @@ abstract class API implements Normalize
     /**
      * @return string
      */
-    protected function getWsdlAccordingToEnvironment(): string
+    protected function getWsdlAccordingToEnvironment()
     {
         if ($this->isLive()) {
             return $this->live_wsdl;
