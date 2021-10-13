@@ -16,8 +16,8 @@ class Country implements Normalize
     private ?string $code;
     private ?string $name;
     private ?string $isoCode;
-    private bool $stateRequired = false;
-    private bool $postCodeRequired = false;
+    private ?bool $stateRequired;
+    private ?bool $postCodeRequired;
     private ?array $postCodeRegex;
     private ?string $internationalCallingNumber;
 
@@ -76,9 +76,9 @@ class Country implements Normalize
     }
 
     /**
-     * @return bool - default: false
+     * @return bool|null
      */
-    public function getStateRequired(): bool
+    public function getStateRequired(): ?bool
     {
         return $this->stateRequired;
     }
@@ -94,9 +94,9 @@ class Country implements Normalize
     }
 
     /**
-     * @return bool - default: false
+     * @return bool|null
      */
-    public function getPostCodeRequired(): bool
+    public function getPostCodeRequired(): ?bool
     {
         return $this->postCodeRequired;
     }

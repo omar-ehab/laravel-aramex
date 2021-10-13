@@ -14,7 +14,7 @@ use OmarEhab\Aramex\API\Interfaces\Normalize;
 class Money implements Normalize
 {
     private string $currencyCode;
-    private $value;
+    private float $value;
 
     /**
      * @return string
@@ -76,9 +76,9 @@ class Money implements Normalize
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getValue()
+    public function getValue(): float
     {
         return $this->value;
     }

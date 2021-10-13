@@ -7,13 +7,13 @@ use OmarEhab\Aramex\API\Interfaces\Normalize;
 
 class DateTime implements Normalize
 {
-    private DateTime $shippingDate;
-    private DateTime $dueDate;
+    private $shippingDate;
+    private $dueDate;
 
     /**
-     * @return DateTime
+     * @return mixed
      */
-    public function getShippingDate(): DateTime
+    public function getShippingDate()
     {
         return $this->shippingDate;
     }
@@ -30,9 +30,9 @@ class DateTime implements Normalize
     }
 
     /**
-     * @return DateTime
+     * @return mixed
      */
-    public function getDueDate(): DateTime
+    public function getDueDate()
     {
         return $this->dueDate;
     }
