@@ -34,7 +34,7 @@ class ShipmentTrackingResponse extends Response
      */
     public function addResult($result): ShipmentTrackingResponse
     {
-        $this->results[] = $result;
+        $this->results[$result['key']] = $result['value'];
         return $this;
     }
 
