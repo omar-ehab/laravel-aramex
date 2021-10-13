@@ -48,6 +48,7 @@ class ShipmentTrackingResponse extends Response
         parent::parse($obj);
         try {
             if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
+
                 if(is_array($result)){
                     foreach ($result as $res) {
                         $this->addResult(TrackingResult::parse($res));

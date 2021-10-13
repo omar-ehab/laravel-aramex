@@ -12,16 +12,16 @@ namespace OmarEhab\Aramex\API\Classes;
  */
 class TrackingResult
 {
-    private string $waybillNumber;
-    private string $updateCode;
-    private string $updateDescription;
-    private string $updateDateTime;
-    private string $updateLocation;
-    private ?string $comments;
-    private ?string $problemCode;
-    private ?string $grossWeight;
-    private ?string $chargeableWeight;
-    private ?string $weightUnit;
+    private $waybillNumber;
+    private $updateCode;
+    private $updateDescription;
+    private $updateDateTime;
+    private $updateLocation;
+    private $comments;
+    private $problemCode;
+    private $grossWeight;
+    private $chargeableWeight;
+    private $weightUnit;
 
     /**
      * @return string
@@ -210,6 +210,7 @@ class TrackingResult
     public static function parse(object $obj)
     {
         $obj = $obj->Value->TrackingResult;
+        dd($obj);
 
         return (new self())
             ->setWaybillNumber($obj->WaybillNumber)
