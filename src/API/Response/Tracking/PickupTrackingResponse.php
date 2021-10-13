@@ -6,18 +6,18 @@ use OmarEhab\Aramex\API\Response\Response;
 
 class PickupTrackingResponse extends Response
 {
-    private string $entity;
-    private string $reference;
-    private string $collectionDate;
-    private string $pickupDate;
-    private string $lastStatus;
-    private string $lastStatusDescription;
-    private string $collectedWaybills;
+    private $entity;
+    private $reference;
+    private $collectionDate;
+    private $pickupDate;
+    private $lastStatus;
+    private $lastStatusDescription;
+    private $collectedWaybills;
 
     /**
      * @return string
      */
-    public function getEntity(): string
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -26,7 +26,7 @@ class PickupTrackingResponse extends Response
      * @param string $entity
      * @return PickupTrackingResponse
      */
-    public function setEntity(string $entity): PickupTrackingResponse
+    public function setEntity(string $entity)
     {
         $this->entity = $entity;
         return $this;
@@ -35,7 +35,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getReference(): string
+    public function getReference()
     {
         return $this->reference;
     }
@@ -44,7 +44,7 @@ class PickupTrackingResponse extends Response
      * @param string $reference
      * @return PickupTrackingResponse
      */
-    public function setReference(string $reference): PickupTrackingResponse
+    public function setReference(string $reference)
     {
         $this->reference = $reference;
         return $this;
@@ -53,7 +53,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getCollectionDate(): string
+    public function getCollectionDate()
     {
         return $this->collectionDate;
     }
@@ -62,7 +62,7 @@ class PickupTrackingResponse extends Response
      * @param string $collectionDate
      * @return PickupTrackingResponse
      */
-    public function setCollectionDate(string $collectionDate): PickupTrackingResponse
+    public function setCollectionDate(string $collectionDate)
     {
         $this->collectionDate = $collectionDate;
         return $this;
@@ -71,7 +71,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getPickupDate(): string
+    public function getPickupDate()
     {
         return $this->pickupDate;
     }
@@ -80,7 +80,7 @@ class PickupTrackingResponse extends Response
      * @param string $pickupDate
      * @return PickupTrackingResponse
      */
-    public function setPickupDate(string $pickupDate): PickupTrackingResponse
+    public function setPickupDate(string $pickupDate)
     {
         $this->pickupDate = $pickupDate;
         return $this;
@@ -89,7 +89,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getLastStatus(): string
+    public function getLastStatus()
     {
         return $this->lastStatus;
     }
@@ -98,7 +98,7 @@ class PickupTrackingResponse extends Response
      * @param string $lastStatus
      * @return PickupTrackingResponse
      */
-    public function setLastStatus(string $lastStatus): PickupTrackingResponse
+    public function setLastStatus(string $lastStatus)
     {
         $this->lastStatus = $lastStatus;
         return $this;
@@ -107,7 +107,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getLastStatusDescription(): string
+    public function getLastStatusDescription()
     {
         return $this->lastStatusDescription;
     }
@@ -116,7 +116,7 @@ class PickupTrackingResponse extends Response
      * @param string $lastStatusDescription
      * @return PickupTrackingResponse
      */
-    public function setLastStatusDescription(string $lastStatusDescription): PickupTrackingResponse
+    public function setLastStatusDescription(string $lastStatusDescription)
     {
         $this->lastStatusDescription = $lastStatusDescription;
         return $this;
@@ -125,7 +125,7 @@ class PickupTrackingResponse extends Response
     /**
      * @return string
      */
-    public function getCollectedWaybills(): string
+    public function getCollectedWaybills()
     {
         return $this->collectedWaybills;
     }
@@ -134,7 +134,7 @@ class PickupTrackingResponse extends Response
      * @param string $collectedWaybills
      * @return PickupTrackingResponse
      */
-    public function setCollectedWaybills(string $collectedWaybills): PickupTrackingResponse
+    public function setCollectedWaybills(string $collectedWaybills)
     {
         $this->collectedWaybills = $collectedWaybills;
         return $this;
@@ -144,7 +144,7 @@ class PickupTrackingResponse extends Response
      * @param object $obj
      * @return PickupTrackingResponse
      */
-    protected function parse($obj): PickupTrackingResponse
+    protected function parse($obj)
     {
         parent::parse($obj);
 
@@ -164,7 +164,7 @@ class PickupTrackingResponse extends Response
      * @param object $obj
      * @return PickupTrackingResponse
      */
-    public static function make($obj): PickupTrackingResponse
+    public static function make($obj)
     {
         return (new self())->parse($obj);
     }

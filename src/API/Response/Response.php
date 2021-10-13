@@ -7,14 +7,14 @@ use OmarEhab\Aramex\API\Classes\Transaction;
 
 abstract class Response
 {
-    private Transaction $transaction;
-    private array $notifications;
-    private bool $hasErrors;
+    private $transaction;
+    private $notifications;
+    private $hasErrors;
 
     /**
      * @return Transaction
      */
-    public function getTransaction(): Transaction
+    public function getTransaction()
     {
         return $this->transaction;
     }
@@ -23,7 +23,7 @@ abstract class Response
      * @param Transaction $transaction
      * @return $this
      */
-    public function setTransaction(Transaction $transaction): Response
+    public function setTransaction(Transaction $transaction)
     {
         $this->transaction = $transaction;
         return $this;
@@ -32,7 +32,7 @@ abstract class Response
     /**
      * @return Notification[]
      */
-    public function getNotifications(): array
+    public function getNotifications()
     {
         return $this->notifications;
     }
@@ -41,7 +41,7 @@ abstract class Response
      * @param Notification[] $notifications
      * @return $this
      */
-    public function setNotifications(array $notifications): Response
+    public function setNotifications(array $notifications)
     {
         $this->notifications = $notifications;
         return $this;
@@ -51,7 +51,7 @@ abstract class Response
      * @param Notification[] $notifications
      * @return $this
      */
-    public function addNotifications(array $notifications): Response
+    public function addNotifications(array $notifications)
     {
         $this->notifications = array_merge(($this->notifications ?? []), $notifications);
         return $this;
@@ -60,7 +60,7 @@ abstract class Response
     /**
      * @return bool
      */
-    public function getHasErrors(): bool
+    public function getHasErrors()
     {
         return $this->hasErrors;
     }
@@ -69,7 +69,7 @@ abstract class Response
      * @param bool $hasErrors
      * @return $this
      */
-    public function setHasErrors(bool $hasErrors): Response
+    public function setHasErrors(bool $hasErrors)
     {
         $this->hasErrors = $hasErrors;
         return $this;
@@ -78,12 +78,12 @@ abstract class Response
     /**
      * @return bool
      */
-    public function isSuccessful(): bool
+    public function isSuccessful()
     {
         return !$this->hasErrors;
     }
 
-    public function getNotificationMessages(): array
+    public function getNotificationMessages()
     {
         return collect($this->getNotifications())->keyBy(function (Notification $notification) {
             return $notification->getCode();
@@ -92,7 +92,7 @@ abstract class Response
         })->toArray();
     }
 
-    public function getMessages(): array
+    public function getMessages()
     {
         return array_map(function (Notification $notification) {
             return $notification->getMessage();
@@ -102,12 +102,12 @@ abstract class Response
     /**
      * @return bool
      */
-    public function isFail(): bool
+    public function isFail()
     {
         return $this->hasErrors;
     }
 
-    protected function parse($obj): Response
+    protected function parse($obj)
     {
         $this->setHasErrors($obj->HasErrors)
             ->setTransaction(Transaction::parse($obj->Transaction))
