@@ -41,7 +41,7 @@ class Address implements Normalize
      * Additional Address information, such as the building number, block, street name.
      * More than 3 characters
      *
-     * @param string $line1
+     * @param string|null $line1
      * @return $this
      */
     public function setLine1(string $line1): Address
