@@ -48,8 +48,13 @@ class ShipmentTrackingResponse extends Response
         parent::parse($obj);
         try {
             if ($result = $obj->TrackingResults->KeyValueOfstringArrayOfTrackingResultmFAkxlpY) {
-                dd($result);
-                $this->addResult(TrackingResult::parse($result));
+                if(is_array($result)){
+                    foreach ($result as $res) {
+                        $this->addResult(TrackingResult::parse($res));
+                    }
+                } else {
+                    $this->addResult(TrackingResult::parse($result));
+                }
             }
         } catch (Exception $e) {
             if($obj->NonExistingWaybills->count()) {
