@@ -44,7 +44,7 @@ abstract class API implements Normalize
     /**
      * @return ClientInfo
      */
-    public function getClientInfo
+    public function getClientInfo()
     {
         return $this->clientInfo;
     }
