@@ -32,7 +32,21 @@ class Address implements Normalize
     public function __construct($line1, $countryCode)
     {
         $this->line1 = $line1;
+        $this->line2 = null;
+        $this->line3 = null;
+        $this->city = null;
+        $this->stateOrProvinceCode = null;
+        $this->postCode = null;
         $this->countryCode = $countryCode;
+        $this->longitude = null;
+        $this->latitude = null;
+        $this->buildingNumber = null;
+        $this->buildingName = null;
+        $this->floor = null;
+        $this->apartment = null;
+        $this->poBox = null;
+        $this->poBox = null;
+        $this->description = null;
     }
 
     /**
