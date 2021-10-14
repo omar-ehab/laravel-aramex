@@ -27,14 +27,15 @@ class Contact implements Normalize
     private ?string $phoneNumber2;
     private ?string $phoneNumber2Ext;
     private ?string $faxNumber;
-    private ?string $cellPhone;
+    private string $cellPhone;
     private string $emailAddress;
     private ?string $type;
 
-    public function __construct($personName, $phoneNumber1, $emailAddress)
+    public function __construct($personName, $phoneNumber1, $cellPhone, $emailAddress)
     {
         $this->personName = $personName;
         $this->phoneNumber1 = $phoneNumber1;
+        $this->cellPhone = $cellPhone;
         $this->emailAddress = $emailAddress;
         $this->title = null;
         $this->department = null;
@@ -219,9 +220,9 @@ class Contact implements Normalize
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getCellPhone(): ?string
+    public function getCellPhone(): string
     {
         return $this->cellPhone;
     }

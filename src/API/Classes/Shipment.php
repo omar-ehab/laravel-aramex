@@ -13,7 +13,7 @@ use OmarEhab\Aramex\API\Interfaces\Normalize;
  */
 class Shipment implements Normalize
 {
-    private string $reference1;
+    private ?string $reference1;
     private ?string $reference2;
     private ?string $reference3;
     private Party $shipper;
@@ -27,14 +27,14 @@ class Shipment implements Normalize
     private ?string $accountingInstructions;
     private ShipmentDetails $details;
     private ?array $attachments;
-    private ?string $foreignHAWB ;
+    private ?string $foreignHAWB;
     private int $transportType = 0;
     private ?string $number;
     private ?string $pickupGUID;
 
-    public function __construct($reference1, $shipper, $consignee, $shippingDateTime, $details)
+    public function __construct($shipper, $consignee, $shippingDateTime, $details)
     {
-        $this->reference1 = $reference1;
+        $this->reference1 = null;
         $this->reference2 = null;
         $this->reference3 = null;
         $this->shipper = $shipper;
