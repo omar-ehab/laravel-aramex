@@ -230,7 +230,7 @@ class Shipment implements Normalize
     /**
      * @return string|null
      */
-    public function getPickupLocation(): string
+    public function getPickupLocation(): ?string
     {
         return $this->pickupLocation;
     }
