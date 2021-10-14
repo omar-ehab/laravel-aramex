@@ -21,15 +21,22 @@ class Contact implements Normalize
     private ?string $department;
     private string $personName;
     private ?string $title;
-    private string $companyName;
+    private ?string $companyName;
     private string $phoneNumber1;
     private ?string $phoneNumber1Ext;
     private ?string $phoneNumber2;
     private ?string $phoneNumber2Ext;
     private ?string $faxNumber;
     private ?string $cellPhone;
-    private ?string $emailAddress;
+    private string $emailAddress;
     private ?string $type;
+
+    public function __construct($personName, $phoneNumber1, $emailAddress)
+    {
+        $this->personName = $personName;
+        $this->phoneNumber1 = $phoneNumber1;
+        $this->emailAddress = $emailAddress;
+    }
 
     /**
      * @return string|null
@@ -41,7 +48,7 @@ class Contact implements Normalize
 
     /**
      * User’s Work Department
-     * @param string|null $department
+     * @param string $department
      * @return $this
      */
     public function setDepartment(string $department): Contact
@@ -89,9 +96,9 @@ class Contact implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompanyName(): string
+    public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
@@ -222,16 +229,16 @@ class Contact implements Normalize
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getEmailAddress(): ?string
+    public function getEmailAddress(): string
     {
         return $this->emailAddress;
     }
 
     /**
      * Email Address
-     * @param string|null $emailAddress
+     * @param string $emailAddress
      * @return $this
      */
     public function setEmailAddress(string $emailAddress): Contact
