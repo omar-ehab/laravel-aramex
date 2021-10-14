@@ -47,9 +47,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return Dimension
+     * @return Dimension|null
      */
-    public function getDimensions(): Dimension
+    public function getDimensions(): ?Dimension
     {
         return $this->dimensions;
     }
