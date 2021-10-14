@@ -21,8 +21,17 @@ class Party implements Normalize
     private Address $partyAddress;
     private Contact $contact;
 
+    public function __construct($partyAddress, $contact)
+    {
+        $this->partyAddress = $partyAddress;
+        $this->contact = $contact;
+        $this->reference1 = null;
+        $this->reference2 = null;
+        $this->accountNumber = null;
+    }
+
     /**
-     * @return string
+     * @return string|null
      */
     public function getReference1(): ?string
     {
@@ -42,7 +51,7 @@ class Party implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getReference2(): ?string
     {
@@ -62,7 +71,7 @@ class Party implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAccountNumber(): ?string
     {

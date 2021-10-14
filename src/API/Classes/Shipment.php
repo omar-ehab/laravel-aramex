@@ -19,18 +19,39 @@ class Shipment implements Normalize
     private Party $shipper;
     private Party $consignee;
     private ?Party $thirdParty;
-    private int $shippingDateTime;
-    private int $dueDate;
+    private string $shippingDateTime;
+    private ?string $dueDate;
     private ?string $comments;
-    private string $pickupLocation;
+    private ?string $pickupLocation;
     private ?string $operationsInstructions;
     private ?string $accountingInstructions;
     private ShipmentDetails $details;
     private ?array $attachments;
-    private ?string $foreignHAWB;
-    private int $transportType;
+    private ?string $foreignHAWB ;
+    private int $transportType = 0;
     private ?string $number;
     private ?string $pickupGUID;
+
+    public function __construct($reference1, $shipper, $consignee, $shippingDateTime, $details)
+    {
+        $this->reference1 = $reference1;
+        $this->reference2 = null;
+        $this->reference3 = null;
+        $this->shipper = $shipper;
+        $this->consignee = $consignee;
+        $this->thirdParty = null;
+        $this->shippingDateTime = $shippingDateTime;
+        $this->dueDate = null;
+        $this->comments = null;
+        $this->pickupLocation = null;
+        $this->operationsInstructions = null;
+        $this->accountingInstructions = null;
+        $this->details = $details;
+        $this->attachments = null;
+        $this->foreignHAWB = null;
+        $this->number = null;
+        $this->pickupGUID = null;
+    }
 
     /**
      * @return string
@@ -63,10 +84,10 @@ class Shipment implements Normalize
     /**
      * Any general detail the customer would like to add about the shipment
      *
-     * @param string $reference2
+     * @param string|null $reference2
      * @return $this
      */
-    public function setReference2(string $reference2): Shipment
+    public function setReference2(?string $reference2): Shipment
     {
         $this->reference2 = $reference2;
         return $this;
@@ -83,10 +104,10 @@ class Shipment implements Normalize
     /**
      * Any general detail the customer would like to add about the shipment
      *
-     * @param string $reference3
+     * @param string|null $reference3
      * @return $this
      */
-    public function setReference3(string $reference3): Shipment
+    public function setReference3(?string $reference3): Shipment
     {
         $this->reference3 = $reference3;
         return $this;
@@ -129,7 +150,7 @@ class Shipment implements Normalize
     }
 
     /**
-     * @return Party
+     * @return Party|null
      */
     public function getThirdParty(): ?Party
     {
@@ -137,19 +158,19 @@ class Shipment implements Normalize
     }
 
     /**
-     * @param Party $thirdParty
+     * @param Party|null $thirdParty
      * @return $this
      */
-    public function setThirdParty(Party $thirdParty): Shipment
+    public function setThirdParty(?Party $thirdParty): Shipment
     {
         $this->thirdParty = $thirdParty;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getShippingDateTime(): int
+    public function getShippingDateTime(): string
     {
         return $this->shippingDateTime;
     }
@@ -157,19 +178,19 @@ class Shipment implements Normalize
     /**
      * The date aramex receives the shipment to be shipped out.
      *
-     * @param int $shippingDateTime
+     * @param string $shippingDateTime
      * @return $this
      */
-    public function setShippingDateTime(int $shippingDateTime): Shipment
+    public function setShippingDateTime(string $shippingDateTime): Shipment
     {
         $this->shippingDateTime = $shippingDateTime;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getDueDate(): int
+    public function getDueDate(): ?string
     {
         return $this->dueDate;
     }
@@ -177,10 +198,10 @@ class Shipment implements Normalize
     /**
      * The date specified for shipment to be delivered to the consignee.
      *
-     * @param int $dueDate
+     * @param string|null $dueDate
      * @return $this
      */
-    public function setDueDate(int $dueDate): Shipment
+    public function setDueDate(?string $dueDate): Shipment
     {
         $this->dueDate = $dueDate;
         return $this;
@@ -197,17 +218,17 @@ class Shipment implements Normalize
     /**
      * Any comments on the shipment.
      *
-     * @param string $comments
+     * @param string|null $comments
      * @return $this
      */
-    public function setComments(string $comments): Shipment
+    public function setComments(?string $comments): Shipment
     {
         $this->comments = $comments;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPickupLocation(): string
     {
@@ -217,10 +238,10 @@ class Shipment implements Normalize
     /**
      * The location from where the shipment should be picked up, such as the reception desk.
      *
-     * @param string $pickupLocation
+     * @param string|null $pickupLocation
      * @return $this
      */
-    public function setPickupLocation(string $pickupLocation): Shipment
+    public function setPickupLocation(?string $pickupLocation): Shipment
     {
         $this->pickupLocation = $pickupLocation;
         return $this;
@@ -237,10 +258,10 @@ class Shipment implements Normalize
     /**
      * Instructions on how to handle the shipment.
      *
-     * @param string $operationsInstructions
+     * @param string|null $operationsInstructions
      * @return $this
      */
-    public function setOperationsInstructions(string $operationsInstructions): Shipment
+    public function setOperationsInstructions(?string $operationsInstructions): Shipment
     {
         $this->operationsInstructions = $operationsInstructions;
         return $this;
@@ -257,10 +278,10 @@ class Shipment implements Normalize
     /**
      * Instructions on how to handle payment specifics.
      *
-     * @param string $accountingInstructions
+     * @param string|null $accountingInstructions
      * @return $this
      */
-    public function setAccountingInstructions(string $accountingInstructions): Shipment
+    public function setAccountingInstructions(?string $accountingInstructions): Shipment
     {
         $this->accountingInstructions = $accountingInstructions;
         return $this;
@@ -285,7 +306,7 @@ class Shipment implements Normalize
     }
 
     /**
-     * @return Attachment[]
+     * @return Attachment[]|null
      */
     public function getAttachments(): ?array
     {

@@ -11,21 +11,33 @@ use OmarEhab\Aramex\API\Interfaces\Normalize;
  */
 class ShipmentDetails implements Normalize
 {
-    private Dimension $dimensions;
+    private ?Dimension $dimensions;
     private Weight $actualWeight;
-    private Weight $chargeableWeight;
     private string $descriptionOfGoods;
     private string $goodsOriginCountry;
     private int $numberOfPieces;
     private string $productGroup;
     private string $productType;
     private string $paymentType;
-    private Money $customsValueAmount;
-    private Money $cashOnDeliveryAmount;
-    private Money $insuranceAmount;
-    private Money $cashAdditionalAmount;
-    private string $services;
+    private ?string $paymentOption;
+    private ?Money $customsValueAmount;
+    private ?Money $cashOnDeliveryAmount;
+    private ?Money $insuranceAmount;
+    private ?Money $cashAdditionalAmount;
+    private ?string $services;
     private array $items;
+
+    public function __construct($actualWeight, $descriptionOfGoods, $goodsOriginCountry, $numberOfPieces, $productGroup, $productType, $paymentType, $items)
+    {
+        $this->actualWeight = $actualWeight;
+        $this->descriptionOfGoods = $descriptionOfGoods;
+        $this->goodsOriginCountry = $goodsOriginCountry;
+        $this->numberOfPieces = $numberOfPieces;
+        $this->productGroup = $productGroup;
+        $this->productType = $productType;
+        $this->paymentType = $paymentType;
+        $this->items = $items;
+    }
 
     /**
      * @return Dimension
@@ -62,24 +74,6 @@ class ShipmentDetails implements Normalize
     public function setActualWeight(Weight $actualWeight): ShipmentDetails
     {
         $this->actualWeight = $actualWeight;
-        return $this;
-    }
-
-    /**
-     * @return Weight
-     */
-    public function getChargeableWeight(): Weight
-    {
-        return $this->chargeableWeight;
-    }
-
-    /**
-     * @param Weight $chargeableWeight
-     * @return ShipmentDetails
-     */
-    public function setChargeableWeight(Weight $chargeableWeight): ShipmentDetails
-    {
-        $this->chargeableWeight = $chargeableWeight;
         return $this;
     }
 
@@ -263,6 +257,22 @@ class ShipmentDetails implements Normalize
     {
         $this->productType = $productType;
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPaymentOption(): ?string
+    {
+        return $this->paymentOption;
+    }
+
+    /**
+     * @param string $paymentOption
+     */
+    public function setPaymentOption(string $paymentOption): void
+    {
+        $this->paymentOption = $paymentOption;
     }
 
     /**
@@ -482,13 +492,13 @@ class ShipmentDetails implements Normalize
         return [
             'Dimensions' => optional($this->getDimensions())->normalize(),
             'ActualWeight' => optional($this->getActualWeight())->normalize(),
-            'ChargeableWeight' => optional($this->getChargeableWeight())->normalize(),
             'DescriptionOfGoods' => $this->getDescriptionOfGoods(),
             'GoodsOriginCountry' => $this->getGoodsOriginCountry(),
             'NumberOfPieces' => $this->getNumberOfPieces(),
             'ProductGroup' => $this->getProductGroup(),
             'ProductType' => $this->getProductType(),
             'PaymentType' => $this->getPaymentType(),
+            'PaymentOption' => $this->getPaymentOption(),
             'CustomsValueAmount' => optional($this->getCustomsValueAmount())->normalize(),
             'CashOnDeliveryAmount' => optional($this->getCashOnDeliveryAmount())->normalize(),
             'InsuranceAmount' => optional($this->getInsuranceAmount())->normalize(),
