@@ -152,7 +152,7 @@ class Contact implements Normalize
 
     /**
      * Valid Extension to the phone number.
-     * @param string|null $phoneNumber1Ext
+     * @param string $phoneNumber1Ext
      * @return $this
      */
     public function setPhoneNumber1Ext(string $phoneNumber1Ext): Contact
@@ -171,7 +171,7 @@ class Contact implements Normalize
 
     /**
      * Valid Phone Number
-     * @param string|null $phoneNumber2
+     * @param string $phoneNumber2
      * @return $this
      */
     public function setPhoneNumber2(string $phoneNumber2): Contact
@@ -190,7 +190,7 @@ class Contact implements Normalize
 
     /**
      * Valid Extension to the phone number.
-     * @param string|null $phoneNumber2Ext
+     * @param string $phoneNumber2Ext
      * @return $this
      */
     public function setPhoneNumber2Ext(string $phoneNumber2Ext): Contact
@@ -209,7 +209,7 @@ class Contact implements Normalize
 
     /**
      * Fax Number
-     * @param string|null $faxNumber
+     * @param string $faxNumber
      * @return $this
      */
     public function setFaxNumber(string $faxNumber): Contact
@@ -221,14 +221,14 @@ class Contact implements Normalize
     /**
      * @return string|null
      */
-    public function getCellPhone(): string
+    public function getCellPhone(): ?string
     {
         return $this->cellPhone;
     }
 
     /**
      * Cell Phone Number
-     * @param string|null $cellPhone
+     * @param string $cellPhone
      * @return $this
      */
     public function setCellPhone(string $cellPhone): Contact
@@ -265,7 +265,7 @@ class Contact implements Normalize
     }
 
     /**
-     * @param string|null $type
+     * @param string $type
      * @return $this
      */
     public function setType(string $type): Contact
