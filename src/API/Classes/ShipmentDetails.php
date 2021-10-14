@@ -29,7 +29,7 @@ class ShipmentDetails implements Normalize
 
     public function __construct($actualWeight, $descriptionOfGoods, $goodsOriginCountry, $numberOfPieces, $productGroup, $productType, $paymentType, $items)
     {
-        $this->actualWeight = $actualWeight;
+        $this->actualWeight = new Weight($actualWeight, 'KG');
         $this->descriptionOfGoods = $descriptionOfGoods;
         $this->goodsOriginCountry = $goodsOriginCountry;
         $this->numberOfPieces = $numberOfPieces;
