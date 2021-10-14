@@ -36,6 +36,14 @@ class Contact implements Normalize
         $this->personName = $personName;
         $this->phoneNumber1 = $phoneNumber1;
         $this->emailAddress = $emailAddress;
+        $this->department = null;
+        $this->companyName = null;
+        $this->phoneNumber1Ext = null;
+        $this->phoneNumber2 = null;
+        $this->phoneNumber2Ext = null;
+        $this->faxNumber = null;
+        $this->cellPhone = null;
+        $this->type = null;
     }
 
     /**

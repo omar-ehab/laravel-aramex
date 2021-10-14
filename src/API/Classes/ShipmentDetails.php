@@ -37,6 +37,13 @@ class ShipmentDetails implements Normalize
         $this->productType = $productType;
         $this->paymentType = $paymentType;
         $this->items = $items;
+        $this->dimensions = null;
+        $this->paymentOption = null;
+        $this->customsValueAmount = null;
+        $this->cashOnDeliveryAmount = null;
+        $this->insuranceAmount = null;
+        $this->cashAdditionalAmount = null;
+        $this->services = null;
     }
 
     /**
