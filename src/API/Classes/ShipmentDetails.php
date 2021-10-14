@@ -283,9 +283,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return Money
+     * @return Money|null
      */
-    public function getCustomsValueAmount(): Money
+    public function getCustomsValueAmount(): ?Money
     {
         return $this->customsValueAmount;
     }
@@ -301,9 +301,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return Money
+     * @return Money|null
      */
-    public function getCashOnDeliveryAmount(): Money
+    public function getCashOnDeliveryAmount(): ?Money
     {
         return $this->cashOnDeliveryAmount;
     }
@@ -320,9 +320,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return Money
+     * @return Money|null
      */
-    public function getInsuranceAmount(): Money
+    public function getInsuranceAmount(): ?Money
     {
         return $this->insuranceAmount;
     }
@@ -339,9 +339,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return Money
+     * @return Money|null
      */
-    public function getCashAdditionalAmount(): Money
+    public function getCashAdditionalAmount(): ?Money
     {
         return $this->cashAdditionalAmount;
     }
@@ -358,9 +358,9 @@ class ShipmentDetails implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getServices(): string
+    public function getServices(): ?string
     {
         return $this->services;
     }
