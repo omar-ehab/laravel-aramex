@@ -54,9 +54,9 @@ class Shipment implements Normalize
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReference1(): string
+    public function getReference1(): ?string
     {
         return $this->reference1;
     }
@@ -64,10 +64,10 @@ class Shipment implements Normalize
     /**
      * Any general detail the customer would like to add about the shipment
      *
-     * @param string $reference1
+     * @param string|null $reference1
      * @return $this
      */
-    public function setReference1(string $reference1): Shipment
+    public function setReference1(?string $reference1): Shipment
     {
         $this->reference1 = $reference1;
         return $this;
