@@ -60,7 +60,7 @@ class Contact implements Normalize
      * @param string|null $department
      * @return $this
      */
-    public function setDepartment(string $department): Contact
+    public function setDepartment(?string $department): Contact
     {
         $this->department = $department;
         return $this;
@@ -98,7 +98,7 @@ class Contact implements Normalize
      * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): Contact
+    public function setTitle(?string $title): Contact
     {
         $this->title = $title;
         return $this;
@@ -117,7 +117,7 @@ class Contact implements Normalize
      * @param string|null $companyName
      * @return $this
      */
-    public function setCompanyName(string $companyName): Contact
+    public function setCompanyName(?string $companyName): Contact
     {
         $this->companyName = $companyName;
         return $this;
@@ -155,7 +155,7 @@ class Contact implements Normalize
      * @param string|null $phoneNumber1Ext
      * @return $this
      */
-    public function setPhoneNumber1Ext(string $phoneNumber1Ext): Contact
+    public function setPhoneNumber1Ext(?string $phoneNumber1Ext): Contact
     {
         $this->phoneNumber1Ext = $phoneNumber1Ext;
         return $this;
@@ -174,7 +174,7 @@ class Contact implements Normalize
      * @param string|null $phoneNumber2
      * @return $this
      */
-    public function setPhoneNumber2(string $phoneNumber2): Contact
+    public function setPhoneNumber2(?string $phoneNumber2): Contact
     {
         $this->phoneNumber2 = $phoneNumber2;
         return $this;
@@ -193,7 +193,7 @@ class Contact implements Normalize
      * @param string|null $phoneNumber2Ext
      * @return $this
      */
-    public function setPhoneNumber2Ext(string $phoneNumber2Ext): Contact
+    public function setPhoneNumber2Ext(?string $phoneNumber2Ext): Contact
     {
         $this->phoneNumber2Ext = $phoneNumber2Ext;
         return $this;
@@ -212,7 +212,7 @@ class Contact implements Normalize
      * @param string|null $faxNumber
      * @return $this
      */
-    public function setFaxNumber(string $faxNumber): Contact
+    public function setFaxNumber(?string $faxNumber): Contact
     {
         $this->faxNumber = $faxNumber;
         return $this;
@@ -268,7 +268,7 @@ class Contact implements Normalize
      * @param string|null $type
      * @return $this
      */
-    public function setType(string $type): Contact
+    public function setType(?string $type): Contact
     {
         $this->type = $type;
         return $this;
