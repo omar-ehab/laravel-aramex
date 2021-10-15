@@ -57,7 +57,7 @@ class Contact implements Normalize
 
     /**
      * User’s Work Department
-     * @param string $department
+     * @param string|null $department
      * @return $this
      */
     public function setDepartment(string $department): Contact
@@ -95,7 +95,7 @@ class Contact implements Normalize
 
     /**
      * User’s Title
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
     public function setTitle(string $title): Contact
@@ -114,7 +114,7 @@ class Contact implements Normalize
 
     /**
      * Company or Person name.
-     * @param string $companyName
+     * @param string|null $companyName
      * @return $this
      */
     public function setCompanyName(string $companyName): Contact
@@ -152,7 +152,7 @@ class Contact implements Normalize
 
     /**
      * Valid Extension to the phone number.
-     * @param string $phoneNumber1Ext
+     * @param string|null $phoneNumber1Ext
      * @return $this
      */
     public function setPhoneNumber1Ext(string $phoneNumber1Ext): Contact
@@ -171,7 +171,7 @@ class Contact implements Normalize
 
     /**
      * Valid Phone Number
-     * @param string $phoneNumber2
+     * @param string|null $phoneNumber2
      * @return $this
      */
     public function setPhoneNumber2(string $phoneNumber2): Contact
@@ -190,7 +190,7 @@ class Contact implements Normalize
 
     /**
      * Valid Extension to the phone number.
-     * @param string $phoneNumber2Ext
+     * @param string|null $phoneNumber2Ext
      * @return $this
      */
     public function setPhoneNumber2Ext(string $phoneNumber2Ext): Contact
@@ -209,7 +209,7 @@ class Contact implements Normalize
 
     /**
      * Fax Number
-     * @param string $faxNumber
+     * @param string|null $faxNumber
      * @return $this
      */
     public function setFaxNumber(string $faxNumber): Contact
@@ -265,7 +265,7 @@ class Contact implements Normalize
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
      * @return $this
      */
     public function setType(string $type): Contact
