@@ -125,7 +125,7 @@ class TrackingResult
      * @param string|null $comments
      * @return $this
      */
-    public function setComments(string $comments): TrackingResult
+    public function setComments(?string $comments): TrackingResult
     {
         $this->comments = $comments;
         return $this;
@@ -143,7 +143,7 @@ class TrackingResult
      * @param string|null $problemCode
      * @return $this
      */
-    public function setProblemCode(string $problemCode): TrackingResult
+    public function setProblemCode(?string $problemCode): TrackingResult
     {
         $this->problemCode = $problemCode;
         return $this;
