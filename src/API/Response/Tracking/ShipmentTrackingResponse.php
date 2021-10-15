@@ -58,8 +58,12 @@ class ShipmentTrackingResponse extends Response
                     }
                 } else {
                     $results = [];
-                    foreach ($result->Value->TrackingResult as $trackingResult) {
-                        array_push($results, TrackingResult::parse($trackingResult));
+                    if(is_array($result->Value->TrackingResult)) {
+                        foreach ($result->Value->TrackingResult as $trackingResult) {
+                            array_push($results, TrackingResult::parse($trackingResult));
+                        }
+                    } else {
+                        array_push($results, TrackingResult::parse($result->Value->TrackingResult));
                     }
                     $this->addResult(["key" => $result->Key, "value" => $results]);
                 }

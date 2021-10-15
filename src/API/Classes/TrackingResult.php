@@ -12,16 +12,16 @@ namespace OmarEhab\Aramex\API\Classes;
  */
 class TrackingResult
 {
-    private $waybillNumber;
-    private $updateCode;
-    private $updateDescription;
-    private $updateDateTime;
-    private $updateLocation;
-    private $comments;
-    private $problemCode;
-    private $grossWeight;
-    private $chargeableWeight;
-    private $weightUnit;
+    private string $waybillNumber;
+    private string $updateCode;
+    private string $updateDescription;
+    private string $updateDateTime;
+    private string $updateLocation;
+    private ?string $comments;
+    private ?string $problemCode;
+    private float $grossWeight;
+    private float $chargeableWeight;
+    private string $weightUnit;
 
     /**
      * @return string
@@ -114,7 +114,7 @@ class TrackingResult
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getComments(): ?string
     {
@@ -122,7 +122,7 @@ class TrackingResult
     }
 
     /**
-     * @param string $comments
+     * @param string|null $comments
      * @return $this
      */
     public function setComments(string $comments): TrackingResult
@@ -132,7 +132,7 @@ class TrackingResult
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getProblemCode(): ?string
     {
@@ -140,7 +140,7 @@ class TrackingResult
     }
 
     /**
-     * @param string $problemCode
+     * @param string|null $problemCode
      * @return $this
      */
     public function setProblemCode(string $problemCode): TrackingResult
@@ -150,36 +150,36 @@ class TrackingResult
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getGrossWeight(): ?string
+    public function getGrossWeight(): float
     {
         return $this->grossWeight;
     }
 
     /**
-     * @param string $grossWeight
+     * @param float $grossWeight
      * @return $this
      */
-    public function setGrossWeight(string $grossWeight): TrackingResult
+    public function setGrossWeight(float $grossWeight): TrackingResult
     {
         $this->grossWeight = $grossWeight;
         return $this;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getChargeableWeight(): ?string
+    public function getChargeableWeight(): float
     {
         return $this->chargeableWeight;
     }
 
     /**
-     * @param string $chargeableWeight
+     * @param float $chargeableWeight
      * @return $this
      */
-    public function setChargeableWeight(string $chargeableWeight): TrackingResult
+    public function setChargeableWeight(float $chargeableWeight): TrackingResult
     {
         $this->chargeableWeight = $chargeableWeight;
         return $this;
@@ -207,7 +207,7 @@ class TrackingResult
      * @param object $obj
      * @return TrackingResult
      */
-    public static function parse(object $obj)
+    public static function parse(object $obj): TrackingResult
     {
         return (new self())
             ->setWaybillNumber($obj->WaybillNumber)
