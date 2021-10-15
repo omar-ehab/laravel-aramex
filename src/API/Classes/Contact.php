@@ -44,7 +44,6 @@ class Contact implements Normalize
         $this->phoneNumber2 = null;
         $this->phoneNumber2Ext = null;
         $this->faxNumber = null;
-        $this->cellPhone = null;
         $this->type = null;
     }
 
