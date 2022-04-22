@@ -30,15 +30,15 @@ Integrate your [Laravel](https://laravel.com) application with [Aramex](https://
 
 Run the following command to install the latest applicable version of the package: 
     
-    composer require OmarEhab/laravel-aramex
+    composer require omar-ehab/laravel-aramex
 
 You can publish the config-file with:
 
-    php artisan vendor:publish --provider="OmarEhab\Aramex\AramexServiceProvider" --tag="config"
+    php artisan vendor:publish --provider="omar-ehab\Aramex\AramexServiceProvider" --tag="config"
 
 You can publish the resources files with:
 
-    php artisan vendor:publish --provider="OmarEhab\Aramex\AramexServiceProvider" --tag="lang"
+    php artisan vendor:publish --provider="omar-ehab\Aramex\AramexServiceProvider" --tag="lang"
 
 ## QuickStart
 
