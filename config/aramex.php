@@ -11,6 +11,7 @@ return [
         'shipping' => '/shipping/service_1_0.svc?wsd',
         'pickup' => '/shipping/service_1_0.svc?wsd',
         'tracking' => '/tracking/Service_1_0.svc?wsdl',
+        'rate' => '/RateCalculator/Service_1_0.svc?wsdl',
     ],
 
     'test_endpoints' => [
@@ -18,6 +19,7 @@ return [
         'shipping' => '/shipping/service_1_0.svc?wsd',
         'pickup' => '/shipping/service_1_0.svc?wsd',
         'tracking' => '/tracking/Service_1_0.svc?wsdl',
+        'rate' => '/RateCalculator/Service_1_0.svc?wsdl',
     ],
 
     'test' => [

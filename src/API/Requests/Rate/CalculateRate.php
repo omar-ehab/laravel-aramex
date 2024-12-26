@@ -17,16 +17,14 @@ class CalculateRate extends API implements Normalize
     private $shipmentDetails;
     private $preferredCurrencyCode;
 
-    protected $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc?wsdl';
-
-
     /**
      * @return RateCalculatorResponse
      * @throws Exception
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.rate");
+
         $this->validate();
 
         return RateCalculatorResponse::make($this->soapClient->CalculateRate($this->normalize()));
