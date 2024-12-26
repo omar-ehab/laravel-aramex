@@ -3,8 +3,22 @@
 return [
     'mode' => env('ARAMEX_MODE', 'test'),
 
-    'live_wsdl' => env('LIVE_WSDL', 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl'),
-    'test_wsdl' => env('TEST_WSDL', 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl'),
+    'base_live_url' => env('BASE_LIVE_URL', 'https://ws.aramex.net/shippingapi.v2'),
+    'base_test_url' => env('BASE_TEST_URL', 'https://ws.dev.aramex.net/shippingapi.v2'),
+
+    'live_endpoints' => [
+        'location' => 'location/service_1_0.svc?wsdl',
+        'shipping' => 'shipping/service_1_0.svc?wsd',
+        'pickup' => 'shipping/service_1_0.svc?wsd',
+        'tracking' => 'tracking/Service_1_0.svc?wsdl',
+    ],
+
+    'test_endpoints' => [
+        'location' => 'location/service_1_0.svc?wsdl',
+        'shipping' => 'shipping/service_1_0.svc?wsd',
+        'pickup' => 'shipping/service_1_0.svc?wsd',
+        'tracking' => 'tracking/Service_1_0.svc?wsdl',
+    ],
 
     'test' => [
         'country_code' => env('ARAMEX_TEST_COUNTRY_CODE'),

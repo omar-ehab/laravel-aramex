@@ -25,6 +25,8 @@ class ValidateAddress extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+
         $this->validate();
 
         return AddressValidationResponse::make($this->soapClient->ValidateAddress($this->normalize()));

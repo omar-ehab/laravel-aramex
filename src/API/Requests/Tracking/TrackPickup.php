@@ -15,9 +15,6 @@ use OmarEhab\Aramex\API\Response\Tracking\PickupTrackingResponse;
  */
 class TrackPickup extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/ShippingAPI.V2/tracking/Service_1_0.svc?wsdl';
-
     private array $shipments;
     private string $reference;
     private $pickup;
@@ -28,6 +25,8 @@ class TrackPickup extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.tracking");
+
         $this->validate();
 
         return PickupTrackingResponse::make($this->soapClient->TrackPickup($this->normalize()));

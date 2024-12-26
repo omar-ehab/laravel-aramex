@@ -19,8 +19,9 @@ abstract class API implements Normalize
     protected $soapClient;
     protected $clientInfo;
     protected $transaction;
-    protected $test_wsdl;
-    protected $live_wsdl;
+    protected $base_live_url;
+    protected $base_test_url;
+    protected $endpoint;
     protected $environment;
 
     /**
@@ -30,8 +31,8 @@ abstract class API implements Normalize
     {
         config('aramex.mode') === 'live' ? $this->useLiveAsEnvironment() : $this->useTestAsEnvironment();
 
-        $this->live_wsdl = config('aramex.live_wsdl');
-        $this->test_wsdl = config('aramex.test_wsdl');
+        $this->base_live_url = config('aramex.base_live_url');
+        $this->base_test_url = config('aramex.base_test_url');
 
         $this->fillClientInfoFromEnv();
 
@@ -112,9 +113,9 @@ abstract class API implements Normalize
     protected function getWsdlAccordingToEnvironment()
     {
         if ($this->isLive()) {
-            return $this->live_wsdl;
+            return $this->base_live_url . config("aramex.live_endpoints.$this->endpoint");
         } else {
-            return $this->test_wsdl;
+            return $this->base_test_url . config("aramex.test_endpoints.$this->endpoint");
         }
     }
 

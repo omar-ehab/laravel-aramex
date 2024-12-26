@@ -14,5 +14,8 @@ use OmarEhab\Aramex\API\Requests\API;
  */
 class FetchDropOffLocations extends API implements Normalize
 {
-    //
+    public function __construct() 
+    {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+    }
 }

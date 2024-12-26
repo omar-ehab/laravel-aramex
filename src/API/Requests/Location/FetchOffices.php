@@ -24,6 +24,8 @@ class FetchOffices extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+
         $this->validate();
 
         return OfficesFetchingResponse::make($this->soapClient->FetchOffices($this->normalize()));

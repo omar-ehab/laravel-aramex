@@ -21,6 +21,8 @@ class FetchCountries extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+
         $this->validate();
 
         return CountriesFetchingResponse::make($this->soapClient->FetchCountries($this->normalize()));

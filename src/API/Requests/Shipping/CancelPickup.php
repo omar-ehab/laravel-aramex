@@ -15,9 +15,6 @@ use OmarEhab\Aramex\API\Response\Shipping\PickupCancellationResponse;
  */
 class CancelPickup extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-
     private $pickupGUID;
     private $comments;
 
@@ -27,6 +24,8 @@ class CancelPickup extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.shipping");
+
         $this->validate();
 
         return PickupCancellationResponse::make($this->soapClient->CancelPickup($this->normalize()));
