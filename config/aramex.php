@@ -3,6 +3,9 @@
 return [
     'mode' => env('ARAMEX_MODE', 'test'),
 
+    'live_wsdl' => env('LIVE_WSDL', 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl'),
+    'test_wsdl' => env('TEST_WSDL', 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl'),
+
     'test' => [
         'country_code' => env('ARAMEX_TEST_COUNTRY_CODE'),
         'entity' => env('ARAMEX_TEST_ENTITY'),

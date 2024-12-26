@@ -30,6 +30,9 @@ abstract class API implements Normalize
     {
         config('aramex.mode') === 'live' ? $this->useLiveAsEnvironment() : $this->useTestAsEnvironment();
 
+        $this->live_wsdl = config('aramex.live_wsdl');
+        $this->test_wsdl = config('aramex.test_wsdl');
+
         $this->fillClientInfoFromEnv();
 
         $this->soapClient = new SoapClient($this->getWsdlAccordingToEnvironment(), array('trace' => 1));
