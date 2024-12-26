@@ -7,17 +7,17 @@ return [
     'base_test_url' => env('BASE_TEST_URL', 'https://ws.dev.aramex.net/shippingapi.v2'),
 
     'live_endpoints' => [
-        'location' => 'location/service_1_0.svc?wsdl',
-        'shipping' => 'shipping/service_1_0.svc?wsd',
-        'pickup' => 'shipping/service_1_0.svc?wsd',
-        'tracking' => 'tracking/Service_1_0.svc?wsdl',
+        'location' => '/location/service_1_0.svc?wsdl',
+        'shipping' => '/shipping/service_1_0.svc?wsd',
+        'pickup' => '/shipping/service_1_0.svc?wsd',
+        'tracking' => '/tracking/Service_1_0.svc?wsdl',
     ],
 
     'test_endpoints' => [
-        'location' => 'location/service_1_0.svc?wsdl',
-        'shipping' => 'shipping/service_1_0.svc?wsd',
-        'pickup' => 'shipping/service_1_0.svc?wsd',
-        'tracking' => 'tracking/Service_1_0.svc?wsdl',
+        'location' => '/location/service_1_0.svc?wsdl',
+        'shipping' => '/shipping/service_1_0.svc?wsd',
+        'pickup' => '/shipping/service_1_0.svc?wsd',
+        'tracking' => '/tracking/Service_1_0.svc?wsdl',
     ],
 
     'test' => [
