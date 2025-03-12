@@ -28,8 +28,8 @@ Integrate your [Laravel](https://laravel.com) application with [Aramex](https://
 
 ## Installation
 
-Run the following command to install the latest applicable version of the package: 
-    
+Run the following command to install the latest applicable version of the package:
+
     composer require omar-ehab/laravel-aramex
 
 You can publish the config-file with:
@@ -39,6 +39,21 @@ You can publish the config-file with:
 You can publish the resources files with:
 
     php artisan vendor:publish --provider="omar-ehab\Aramex\AramexServiceProvider" --tag="lang"
+
+### Environment Variables
+After installation, you can add the following variables to your .env file to modify the default values of Aramex API URLs:
+
+```
+BASE_LIVE_URL
+BASE_TEST_URL
+```
+
+Default values are:
+
+```
+BASE_LIVE_URL=https://ws.aramex.net/shippingapi.v2
+BASE_TEST_URL=https://ws.sbx.aramex.net/shippingapi.v2
+```
 
 ## QuickStart
 
@@ -50,7 +65,7 @@ This method allows users to get the world countries list.
     Aramex::fetchCountries()->run();
 
 #### Fetch Country
-This method allows users to get details of a certain country. 
+This method allows users to get details of a certain country.
 
     Aramex::fetchCountry()
         ->setCode('PS')
@@ -64,15 +79,15 @@ This method allows users to get all the states within a certain country (country
         ->run();
 
 #### Fetch Cities
-This method allows users to get all the cities within a certain country (country code). And allows users to get list of the cities that start with a specific prefix. The required nodes to be filled are Client Info and Country Code. 
+This method allows users to get all the cities within a certain country (country code). And allows users to get list of the cities that start with a specific prefix. The required nodes to be filled are Client Info and Country Code.
 
     Aramex::fetchCities()
         ->setCountryCode('AE')
         ->run();
 
 #### Validate Address
-This method Allows users to search for certain addresses and make sure that the address structure is correct. 
- 
+This method Allows users to search for certain addresses and make sure that the address structure is correct.
+
     Aramex::validateAddress()
         ->setAddress(
             (new Address()) ...
@@ -186,3 +201,4 @@ This method allows the user to track an existing shipment’s updates and latest
     Aramex::trackShipments()
         ->setShipments(['SHIPMENT_NO'])
         ->run();
+
