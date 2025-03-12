@@ -15,9 +15,6 @@ use OmarEhab\Aramex\API\Response\Shipping\ReserveRangeResponse;
  */
 class ReserveShipmentNumberRange extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/shipping/service_1_0.svc?wsdl';
-
     private $entity;
     private $productGroup;
     private $count;
@@ -28,6 +25,8 @@ class ReserveShipmentNumberRange extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.shipping");
+
         $this->validate();
 
         return ReserveRangeResponse::make($this->soapClient->ReserveShipmentNumberRange($this->normalize()));

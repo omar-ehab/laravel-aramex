@@ -16,9 +16,6 @@ use OmarEhab\Aramex\API\Response\Location\OfficesFetchingResponse;
  */
 class FetchOffices extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-
     private string $countryCode;
 
     /**
@@ -27,6 +24,8 @@ class FetchOffices extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+
         $this->validate();
 
         return OfficesFetchingResponse::make($this->soapClient->FetchOffices($this->normalize()));

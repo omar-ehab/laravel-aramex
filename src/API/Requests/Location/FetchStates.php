@@ -9,9 +9,6 @@ use OmarEhab\Aramex\API\Response\Location\StatesFetchingResponse;
 
 class FetchStates extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-
     private string $countryCode;
 
     /**
@@ -20,6 +17,8 @@ class FetchStates extends API implements Normalize
      */
     public function run()
     {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+
         $this->validate();
 
         return StatesFetchingResponse::make($this->soapClient->FetchStates($this->normalize()));

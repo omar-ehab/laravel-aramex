@@ -4,8 +4,6 @@ namespace OmarEhab\Aramex\API\Requests\Location;
 
 use OmarEhab\Aramex\API\Interfaces\Normalize;
 use OmarEhab\Aramex\API\Requests\API;
-use OmarEhab\Aramex\API\Response\Location\DropOffLocationsFetchingResponse;
-use Exception;
 
 /**
  * This method allows users to get list of the available ARAMEX offices within a certain country.
@@ -16,7 +14,8 @@ use Exception;
  */
 class FetchDropOffLocations extends API implements Normalize
 {
-    protected $live_wsdl = 'https://ws.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-    protected $test_wsdl = 'https://ws.dev.aramex.net/shippingapi.v2/location/service_1_0.svc?wsdl';
-
+    public function __construct() 
+    {
+        $this->endpoint = config("aramex.{$this->environment}_endpoints.location");
+    }
 }

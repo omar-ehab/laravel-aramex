@@ -3,6 +3,25 @@
 return [
     'mode' => env('ARAMEX_MODE', 'test'),
 
+    'base_live_url' => env('BASE_LIVE_URL', 'https://ws.aramex.net/shippingapi.v2'),
+    'base_test_url' => env('BASE_TEST_URL', 'https://ws.dev.aramex.net/shippingapi.v2'),
+
+    'live_endpoints' => [
+        'location' => '/location/service_1_0.svc?wsdl',
+        'shipping' => '/shipping/service_1_0.svc?wsd',
+        'pickup' => '/shipping/service_1_0.svc?wsd',
+        'tracking' => '/tracking/Service_1_0.svc?wsdl',
+        'rate' => '/RateCalculator/Service_1_0.svc?wsdl',
+    ],
+
+    'test_endpoints' => [
+        'location' => '/location/service_1_0.svc?wsdl',
+        'shipping' => '/shipping/service_1_0.svc?wsd',
+        'pickup' => '/shipping/service_1_0.svc?wsd',
+        'tracking' => '/tracking/Service_1_0.svc?wsdl',
+        'rate' => '/RateCalculator/Service_1_0.svc?wsdl',
+    ],
+
     'test' => [
         'country_code' => env('ARAMEX_TEST_COUNTRY_CODE'),
         'entity' => env('ARAMEX_TEST_ENTITY'),
